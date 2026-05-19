@@ -174,25 +174,35 @@ const RESPONSIVE_CSS = `
   .pa-footer-legal a:hover { color: var(--gold); }
 
   /* FADE ANIMATION */
-  .pa-fade { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+  .pa-fade { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease-out, transform 0.5s ease-out; }
   .pa-fade.visible { opacity: 1; transform: translateY(0); }
-  .pa-fade-d1 { transition-delay: 100ms; }
-  .pa-fade-d2 { transition-delay: 200ms; }
+  .pa-fade-d1 { transition-delay: 80ms; }
+  .pa-fade-d2 { transition-delay: 160ms; }
+  /* iOS Safari fallback: if JS animation never fires, still show content */
+  @media (prefers-reduced-motion: reduce) {
+    .pa-fade { opacity: 1; transform: none; }
+  }
 `;
 
-function useInView(threshold = 0.12) {
+function useInView() {
   const ref = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    // Fallback: if already in viewport on mount, show immediately
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight) {
+      setInView(true);
+      return;
+    }
     const obs = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) setInView(true); },
-      { threshold }
+      { threshold: 0, rootMargin: "0px 0px -40px 0px" }
     );
     obs.observe(el);
     return () => obs.disconnect();
-  }, [threshold]);
+  }, []);
   return { ref, inView };
 }
 
@@ -212,6 +222,16 @@ export default function UeberUnsPage() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Hard safety net: after 800ms force all fade elements visible
+  // Prevents blank content on iOS Safari if IntersectionObserver misfires
+  useEffect(() => {
+    const t = setTimeout(() => {
+      document.querySelectorAll(".pa-fade").forEach(el => el.classList.add("visible"));
+    }, 800);
+    return () => clearTimeout(t);
+  }, []);
+
   const heroParallax = scrollY * 0.3;
 
   return (

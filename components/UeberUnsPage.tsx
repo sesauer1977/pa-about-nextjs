@@ -2,10 +2,10 @@
 
 /**
  * PERSPEKTIVE AUSLAND — ÜBER UNS PAGE
- * Design: Klassischer Reisejournalismus trifft Private Banking
- * Farben: Marineblau #0B1C2D | Elfenbein #FAF7F2 | Mattgold #C9A84C
- * Fonts: Cormorant Garamond (Headlines) | Crimson Pro (Body) | Montserrat (Labels)
- * Responsive: Mobile-first, single column < 768px, two columns >= 768px
+ * Full rewrite per brief: "Wir beraten zu Wegen, die wir selbst gegangen sind."
+ * Voice: "ich" in biographical sections (02-05), "wir" in corporate sections (01, 06-09)
+ * No em-dashes, no en-dashes. No "Diebstahl", "Gefängniswärter", "Schuldkultur".
+ * Design: Marineblau #0B1C2D | Elfenbein #FAF7F2 | Mattgold #C9A84C
  */
 
 import { useEffect, useRef, useState } from "react";
@@ -23,114 +23,106 @@ const RESPONSIVE_CSS = `
   :root { --gold: #C9A84C; --navy: #0B1C2D; --ivory: #FAF7F2; }
   *, *::before, *::after { box-sizing: border-box; }
   html { overflow-x: hidden; max-width: 100%; }
-  body { margin: 0; padding: 0; background: var(--ivory); overflow-x: hidden; max-width: 100%; }
-
-
+  body { margin: 0; padding: 0; background: var(--ivory); overflow-x: hidden; max-width: 100%; -webkit-font-smoothing: antialiased; }
 
   /* HEADER */
   .pa-header { background: var(--navy); padding: 0 1.5rem; height: 64px; display: flex; align-items: center; border-bottom: 1px solid rgba(201,168,76,0.25); width: 100%; }
-  .pa-header-inner { max-width: 1280px; margin: 0 auto; width: 100%; display: flex; align-items: center; gap: 0; }
+  .pa-header-inner { max-width: 1280px; margin: 0 auto; width: 100%; display: flex; align-items: center; }
   .pa-header-logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
-  .pa-header-logo img { height: 36px; width: auto; display: block; filter: brightness(0) invert(1); }
-  .pa-header-divider { width: 1px; height: 28px; background: rgba(201,168,76,0.5); margin: 0 1.25rem; flex-shrink: 0; }
-  .pa-header-label { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); white-space: nowrap; }
+  .pa-header-logo img { height: 34px; width: auto; display: block; filter: brightness(0) invert(1); }
+  .pa-header-divider { width: 1px; height: 26px; background: rgba(201,168,76,0.5); margin: 0 1.25rem; flex-shrink: 0; }
+  .pa-header-label { font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); white-space: nowrap; }
 
   /* HERO */
   .pa-hero { position: relative; height: 100vh; min-height: 560px; overflow: hidden; display: flex; align-items: center; width: 100%; }
   .pa-hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; will-change: transform; }
-  .pa-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(11,28,45,0.9) 50%, rgba(11,28,45,0.35) 100%); }
+  .pa-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(11,28,45,0.92) 50%, rgba(11,28,45,0.35) 100%); }
   .pa-hero-content { position: relative; z-index: 2; width: 100%; max-width: 1280px; margin: 0 auto; padding: 2rem 1.5rem; }
-  .pa-hero-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 8vw, 5.5rem); font-weight: 700; color: var(--ivory); line-height: 1.05; margin: 0 0 1.25rem; display: block; width: 100%; }
-  .pa-hero p { font-family: 'Crimson Pro', serif; font-size: clamp(1rem, 2.5vw, 1.3rem); color: rgba(250,247,242,0.85); line-height: 1.7; margin: 0 0 2rem; max-width: 520px; }
+  .pa-hero-eyebrow { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
+  .pa-hero-h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 5vw, 4rem); font-weight: 700; color: var(--ivory); line-height: 1.1; margin: 0 0 1.25rem; max-width: 640px; }
+  .pa-hero-subline { font-family: 'Crimson Pro', serif; font-size: clamp(1.05rem, 2vw, 1.25rem); color: rgba(250,247,242,0.85); line-height: 1.7; margin: 0 0 1rem; max-width: 560px; font-style: italic; }
+  .pa-hero-brand { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.15em; color: rgba(250,247,242,0.5); text-transform: uppercase; margin-bottom: 2rem; }
   .pa-hero-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-  .pa-btn-primary { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 13px 24px; text-decoration: none; display: inline-block; }
+  .pa-btn-primary { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 13px 24px; text-decoration: none; display: inline-block; transition: background 0.2s; }
   .pa-btn-primary:hover { background: #b8943d; }
-  .pa-btn-outline { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ivory); border: 1px solid rgba(250,247,242,0.4); padding: 13px 24px; text-decoration: none; display: inline-block; }
+  .pa-btn-outline { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ivory); border: 1px solid rgba(250,247,242,0.35); padding: 13px 24px; text-decoration: none; display: inline-block; transition: border-color 0.2s; }
   .pa-btn-outline:hover { border-color: var(--gold); }
-  .pa-scroll-hint { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 6px; transition: opacity 0.3s; }
-  .pa-scroll-hint span { font-family: 'Montserrat', sans-serif; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(250,247,242,0.45); }
-  .pa-scroll-line { width: 1px; height: 36px; background: linear-gradient(to bottom, rgba(201,168,76,0.8), transparent); }
+  .pa-scroll-hint { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 6px; transition: opacity 0.3s; pointer-events: none; }
+  .pa-scroll-hint span { font-family: 'Montserrat', sans-serif; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(250,247,242,0.4); }
+  .pa-scroll-line { width: 1px; height: 36px; background: linear-gradient(to bottom, rgba(201,168,76,0.7), transparent); }
 
   /* STATS */
   .pa-stats { background: var(--navy); border-top: 1px solid rgba(201,168,76,0.2); width: 100%; overflow-x: hidden; }
   .pa-stats-grid { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); width: 100%; }
   .pa-stat { text-align: center; padding: 1.5rem 0.75rem; border-right: 1px solid rgba(201,168,76,0.1); }
   .pa-stat-num { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 0.4rem; }
-  .pa-stat-label { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ivory); }
-  .pa-stat-sub { font-family: 'Crimson Pro', serif; font-size: 13px; color: rgba(250,247,242,0.5); font-style: italic; }
+  .pa-stat-label { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ivory); margin-bottom: 0.2rem; }
+  .pa-stat-sub { font-family: 'Crimson Pro', serif; font-size: 12px; color: rgba(250,247,242,0.5); font-style: italic; }
 
   /* CHAPTER LABEL */
-  .pa-chapter-label { display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem; }
+  .pa-chapter-label { display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem; flex-wrap: wrap; }
   .pa-chapter-num { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; }
-  .pa-chapter-line { height: 1px; width: 36px; background: var(--gold); opacity: 0.6; }
+  .pa-chapter-line { height: 1px; width: 32px; background: var(--gold); opacity: 0.6; flex-shrink: 0; }
   .pa-chapter-title { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase; opacity: 0.8; }
 
-  /* SECTION PADDING */
+  /* SECTIONS */
   .pa-section { padding: 5rem 1.5rem; width: 100%; }
   .pa-section-dark { background: var(--navy); }
   .pa-section-light { background: var(--ivory); }
   .pa-inner { max-width: 1280px; margin: 0 auto; }
 
-  /* TWO-COL GRID — stacks on mobile */
+  /* GRIDS */
   .pa-grid-2 { display: grid; grid-template-columns: 1fr; gap: 2.5rem; width: 100%; }
-  @media (min-width: 768px) {
-    .pa-grid-2 { grid-template-columns: 1fr 1fr; gap: 4rem; }
-  }
+  @media (min-width: 768px) { .pa-grid-2 { grid-template-columns: 1fr 1fr; gap: 4rem; } }
   .pa-grid-2-wide { display: grid; grid-template-columns: 1fr; gap: 2.5rem; width: 100%; }
-  @media (min-width: 768px) {
-    .pa-grid-2-wide { grid-template-columns: 1fr 1.5fr; gap: 4rem; }
-  }
+  @media (min-width: 768px) { .pa-grid-2-wide { grid-template-columns: 1fr 1.5fr; gap: 4rem; } }
   .pa-grid-2-wide-r { display: grid; grid-template-columns: 1fr; gap: 2.5rem; width: 100%; }
-  @media (min-width: 768px) {
-    .pa-grid-2-wide-r { grid-template-columns: 1.5fr 1fr; gap: 4rem; }
-  }
+  @media (min-width: 768px) { .pa-grid-2-wide-r { grid-template-columns: 1.5fr 1fr; gap: 4rem; } }
   .pa-grid-portrait { display: grid; grid-template-columns: 1fr; gap: 2.5rem; align-items: center; width: 100%; }
-  @media (min-width: 768px) {
-    .pa-grid-portrait { grid-template-columns: 1fr 1.2fr; gap: 4rem; }
-  }
+  @media (min-width: 768px) { .pa-grid-portrait { grid-template-columns: 1fr 1.2fr; gap: 4rem; } }
 
   /* TYPOGRAPHY */
-  .pa-h2-light { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 3.2rem); font-weight: 700; color: var(--ivory); line-height: 1.15; margin: 0 0 1.5rem; }
-  .pa-h2-dark { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 3.2rem); font-weight: 700; color: var(--navy); line-height: 1.15; margin: 0 0 1.5rem; }
-  .pa-h2-center { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 3.5rem); font-weight: 700; color: var(--ivory); line-height: 1.15; margin: 0 0 1rem; text-align: center; }
+  .pa-h2-light { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 700; color: var(--ivory); line-height: 1.15; margin: 0 0 1.5rem; }
+  .pa-h2-dark { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 700; color: var(--navy); line-height: 1.15; margin: 0 0 1.5rem; }
+  .pa-h2-center { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 3.2rem); font-weight: 700; color: var(--ivory); line-height: 1.15; margin: 0 0 1rem; text-align: center; }
   .pa-body-light { font-family: 'Crimson Pro', serif; font-size: 1.15rem; line-height: 1.85; color: rgba(250,247,242,0.82); margin: 0 0 1.25rem; }
   .pa-body-dark { font-family: 'Crimson Pro', serif; font-size: 1.15rem; line-height: 1.85; color: #2C2C2C; margin: 0 0 1.25rem; }
   .pa-gold { color: var(--gold); }
-  .pa-italic { font-style: italic; }
   .pa-link-dark { color: var(--navy); font-weight: 700; text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
-  .pa-link-gold { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.4); padding-bottom: 1px; }
+  .pa-link-gold { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.4); padding-bottom: 1px; transition: border-color 0.2s; }
   .pa-link-gold:hover { border-color: var(--gold); }
-  .pa-blockquote { border-left: 3px solid var(--gold); padding-left: 1.25rem; font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-style: italic; color: var(--navy); line-height: 1.55; margin: 0; }
-  .pa-blockquote-light { border-left: 3px solid var(--gold); padding-left: 1.25rem; font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-style: italic; color: var(--ivory); line-height: 1.55; margin: 0; }
+  .pa-link-inline { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.3); padding-bottom: 1px; }
   .pa-divider { width: 40px; height: 2px; background: var(--gold); margin-bottom: 1.5rem; }
   .pa-year-label { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
 
+  /* COORDINATE DIVIDER */
+  .pa-coord-divider { font-family: 'Montserrat', sans-serif; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(201,168,76,0.65); margin-bottom: 0.75rem; }
+
   /* LANDSCAPE IMAGES */
   .pa-landscape { position: relative; overflow: hidden; width: 100%; }
-  .pa-landscape-bg { height: 380px; background-size: cover; background-position: center; background-attachment: scroll; position: relative; width: 100%; }
-  @media (min-width: 768px) { .pa-landscape-bg { height: 520px; background-attachment: fixed; } }
+  .pa-landscape-bg { height: 360px; background-size: cover; background-position: center; background-attachment: scroll; position: relative; width: 100%; }
+  @media (min-width: 768px) { .pa-landscape-bg { height: 500px; background-attachment: fixed; } }
   .pa-landscape-overlay-b { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(11,28,45,0.3) 0%, rgba(11,28,45,0.75) 100%); }
   .pa-landscape-overlay-r { position: absolute; inset: 0; background: linear-gradient(to right, rgba(11,28,45,0.85) 40%, rgba(11,28,45,0.3) 100%); }
   .pa-landscape-overlay-l { position: absolute; inset: 0; background: linear-gradient(to left, rgba(11,28,45,0.85) 40%, rgba(11,28,45,0.3) 100%); }
   .pa-landscape-caption { position: absolute; bottom: 2rem; left: 1.5rem; right: 1.5rem; }
-  .pa-landscape-caption-r { position: absolute; inset: 0; display: flex; align-items: center; justify-content: flex-end; padding: 0 1.5rem; }
   .pa-landscape-caption-c { position: absolute; inset: 0; display: flex; align-items: center; padding: 0 1.5rem; }
-  .pa-coords { font-family: 'Montserrat', sans-serif; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(201,168,76,0.7); margin-bottom: 0.5rem; }
-  .pa-landscape-h { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.5rem, 4vw, 3rem); font-weight: 700; color: var(--ivory); line-height: 1.1; max-width: 560px; margin: 0; }
+  .pa-landscape-caption-r { position: absolute; inset: 0; display: flex; align-items: center; justify-content: flex-end; padding: 0 1.5rem; }
+  .pa-landscape-h { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.5rem, 4vw, 2.8rem); font-weight: 700; color: var(--ivory); line-height: 1.1; max-width: 560px; margin: 0; }
 
   /* PORTRAIT */
   .pa-portrait-wrap { position: relative; width: 100%; overflow: hidden; }
   .pa-portrait-wrap img { width: 100%; max-width: 100%; height: auto; display: block; filter: brightness(0.95) contrast(1.05); }
   .pa-portrait-fade { position: absolute; bottom: -1px; left: 0; right: 0; height: 100px; background: linear-gradient(to top, var(--navy), transparent); }
-  .pa-portrait-credit { position: absolute; bottom: 1.25rem; left: 1.25rem; font-family: 'Montserrat', sans-serif; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(201,168,76,0.7); }
+  .pa-portrait-credit { position: absolute; bottom: 1.25rem; left: 1.25rem; font-family: 'Crimson Pro', serif; font-size: 13px; color: rgba(250,247,242,0.6); font-style: italic; }
 
-  /* TIMELINE BOX */
-  .pa-timeline { background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.2); padding: 2rem; margin-top: 0; }
+  /* TIMELINE */
+  .pa-timeline { background: rgba(201,168,76,0.07); border: 1px solid rgba(201,168,76,0.2); padding: 2rem; }
   @media (min-width: 768px) { .pa-timeline { margin-top: 3rem; } }
   .pa-timeline-title { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
   .pa-timeline-row { display: flex; gap: 1rem; padding-bottom: 0.875rem; margin-bottom: 0.875rem; border-bottom: 1px solid rgba(201,168,76,0.1); }
   .pa-timeline-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-  .pa-timeline-year { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; color: var(--gold); min-width: 44px; }
+  .pa-timeline-year { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; color: var(--gold); min-width: 44px; padding-top: 2px; }
   .pa-timeline-city { font-family: 'Crimson Pro', serif; font-size: 1rem; font-weight: 700; color: var(--ivory); }
   .pa-timeline-desc { font-family: 'Crimson Pro', serif; font-size: 0.9rem; color: rgba(250,247,242,0.55); font-style: italic; }
 
@@ -139,18 +131,11 @@ const RESPONSIVE_CSS = `
   @media (min-width: 640px) { .pa-cards { grid-template-columns: 1fr 1fr; } }
   @media (min-width: 1024px) { .pa-cards { grid-template-columns: repeat(3, 1fr); } }
   .pa-card { background: #fff; border: 1px solid rgba(11,28,45,0.08); padding: 1.75rem; transition: box-shadow 0.3s, transform 0.3s; }
-  .pa-card:hover { box-shadow: 0 8px 32px rgba(11,28,45,0.12); transform: translateY(-4px); }
-  .pa-card-icon { font-size: 1.6rem; margin-bottom: 0.875rem; }
-  .pa-card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 700; color: var(--navy); margin: 0 0 0.625rem; line-height: 1.3; }
+  .pa-card:hover { box-shadow: 0 8px 32px rgba(11,28,45,0.1); transform: translateY(-3px); }
+  .pa-card-num { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.15em; color: var(--gold); margin-bottom: 0.75rem; }
+  .pa-card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 700; color: var(--navy); margin: 0 0 0.625rem; line-height: 1.3; }
   .pa-card-desc { font-family: 'Crimson Pro', serif; font-size: 1.05rem; line-height: 1.7; color: #444; margin: 0 0 1.1rem; }
   .pa-card-link { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.3); padding-bottom: 1px; }
-
-  /* BELIEFS GRID */
-  .pa-beliefs { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
-  @media (min-width: 640px) { .pa-beliefs { grid-template-columns: 1fr 1fr; } }
-  .pa-belief { border-top: 1px solid rgba(201,168,76,0.2); padding-top: 1.25rem; }
-  .pa-belief-title { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.625rem; }
-  .pa-belief-text { font-family: 'Crimson Pro', serif; font-size: 1.05rem; line-height: 1.75; color: rgba(250,247,242,0.75); margin: 0; }
 
   /* PLAN B STEPS */
   .pa-steps { display: flex; flex-direction: column; gap: 0; }
@@ -161,15 +146,18 @@ const RESPONSIVE_CSS = `
   .pa-step-desc { font-family: 'Crimson Pro', serif; font-size: 1rem; line-height: 1.6; color: #555; margin: 0; }
 
   /* CTA */
-  .pa-cta { background: var(--navy); padding: 5rem 1.5rem; border-top: 1px solid rgba(201,168,76,0.2); text-align: center; }
-  .pa-cta-inner { max-width: 720px; margin: 0 auto; }
-  .pa-cta-label { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
-  .pa-cta h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 5vw, 3.5rem); font-weight: 700; color: var(--ivory); line-height: 1.1; margin: 0 0 1.25rem; }
+  .pa-cta { background: var(--navy); padding: 5rem 1.5rem; border-top: 1px solid rgba(201,168,76,0.2); text-align: center; width: 100%; }
+  .pa-cta-inner { max-width: 680px; margin: 0 auto; }
+  .pa-cta-eyebrow { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
+  .pa-cta h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 5vw, 3.2rem); font-weight: 700; color: var(--ivory); line-height: 1.1; margin: 0 0 1.25rem; }
   .pa-cta p { font-family: 'Crimson Pro', serif; font-size: 1.15rem; line-height: 1.8; color: rgba(250,247,242,0.75); margin: 0 0 2.5rem; }
-  .pa-cta-btns { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+  .pa-cta-btns { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .pa-cta-secondary { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+  .pa-cta-secondary a { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; color: rgba(250,247,242,0.55); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+  .pa-cta-secondary a:hover { color: var(--gold); }
 
   /* FOOTER */
-  .pa-footer { background: #060E17; padding: 3.5rem 1.5rem 2rem; border-top: 1px solid rgba(201,168,76,0.15); width: 100%; overflow-x: hidden; display: none; }
+  .pa-footer { background: #060E17; padding: 3.5rem 1.5rem 2rem; border-top: 1px solid rgba(201,168,76,0.15); width: 100%; overflow-x: hidden; }
   .pa-footer-grid { max-width: 1280px; margin: 0 auto 2.5rem; display: grid; grid-template-columns: 1fr; gap: 2rem; width: 100%; }
   @media (min-width: 640px) { .pa-footer-grid { grid-template-columns: 1fr 1fr; } }
   @media (min-width: 1024px) { .pa-footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; } }
@@ -185,8 +173,8 @@ const RESPONSIVE_CSS = `
   .pa-footer-legal a { font-family: 'Montserrat', sans-serif; font-size: 10px; color: rgba(250,247,242,0.3); text-decoration: none; transition: color 0.2s; }
   .pa-footer-legal a:hover { color: var(--gold); }
 
-  /* FADE IN ANIMATION */
-  .pa-fade { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+  /* FADE ANIMATION */
+  .pa-fade { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
   .pa-fade.visible { opacity: 1; transform: translateY(0); }
   .pa-fade-d1 { transition-delay: 100ms; }
   .pa-fade-d2 { transition-delay: 200ms; }
@@ -224,9 +212,6 @@ export default function UeberUnsPage() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  const navBg = scrollY > 60 ? "rgba(11,28,45,0.97)" : "transparent";
-  const navBorder = scrollY > 60 ? "1px solid rgba(201,168,76,0.2)" : "none";
   const heroParallax = scrollY * 0.3;
 
   return (
@@ -234,16 +219,11 @@ export default function UeberUnsPage() {
       <style dangerouslySetInnerHTML={{ __html: RESPONSIVE_CSS }} />
       <div style={{ background: "#FAF7F2", fontFamily: "'Crimson Pro', serif", overflowX: "hidden" }}>
 
-
-
         {/* HEADER */}
         <header className="pa-header">
           <div className="pa-header-inner">
             <a href="https://www.perspektiveausland.com" className="pa-header-logo">
-              <img
-                src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663489425504/yqNKzokVKRKvNQQj.webp"
-                alt="Perspektive Ausland"
-              />
+              <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663489425504/yXZrDfTMyVGljsjL.png" alt="Perspektive Ausland" />
             </a>
             <div className="pa-header-divider" />
             <span className="pa-header-label">Über uns</span>
@@ -255,17 +235,16 @@ export default function UeberUnsPage() {
           <div className="pa-hero-bg" style={{ backgroundImage: `url(${IMAGES.hero})`, transform: `translateY(${heroParallax}px)` }} />
           <div className="pa-hero-overlay" />
           <div className="pa-hero-content">
-            <div style={{ maxWidth: "600px" }}>
-              <div style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "10px", fontWeight: 700, letterSpacing: "0.25em", textTransform: "uppercase", color: "#C9A84C", marginBottom: "1.25rem" }}>Über uns</div>
-              <h1 className="pa-hero-headline">
-                Mehr Geld.<br />Mehr Freiheit.<br /><em style={{ color: "#C9A84C" }}>Weniger Staat.</em>
-              </h1>
-              <p style={{ fontFamily: "'Crimson Pro', serif", fontSize: "clamp(1rem, 2.5vw, 1.3rem)", color: "rgba(250,247,242,0.85)", lineHeight: 1.7, margin: "0 0 2rem", maxWidth: "520px" }}>
-                Wer aus dem deutschsprachigen Raum auswandern will, steht vor Fragen, die im Heimatland nie eine Rolle gespielt haben. Wir beantworten sie. Seit über zwei Jahrzehnten.
+            <div style={{ maxWidth: "640px" }}>
+              <div className="pa-hero-eyebrow">Über uns</div>
+              <h1 className="pa-hero-h1">Über Perspektive Ausland und Sebastian Sauerborn</h1>
+              <p className="pa-hero-subline">
+                Wir beraten zu Wegen, die wir selbst gegangen sind. Seit 2000 lebe ich im Ausland. Seitdem begleiten wir andere durch die gleiche Entscheidung.
               </p>
+              <div className="pa-hero-brand">Mehr Geld. Mehr Freiheit. Weniger Staat.</div>
               <div className="pa-hero-btns">
-                <a href="https://www.perspektiveausland.com/loesungen" className="pa-btn-primary">Wie wir helfen</a>
-                <a href="https://www.perspektiveausland.com/podcast" className="pa-btn-outline">Zum Podcast</a>
+                <a href="https://mandatierung.perspektiveausland.com/" className="pa-btn-primary">Erstgespräch buchen</a>
+                <a href="https://www.perspektiveausland.com/podcast" className="pa-btn-outline">Podcast hören</a>
               </div>
             </div>
           </div>
@@ -279,11 +258,11 @@ export default function UeberUnsPage() {
         <section className="pa-stats">
           <div className="pa-stats-grid">
             {[
-              { n: "25+", l: "Jahre Erfahrung", s: "seit 2000 im Ausland" },
-              { n: "40+", l: "Jurisdiktionen", s: "analysiert & beraten" },
-              { n: "1.000+", l: "Mandanten", s: "erfolgreich umgezogen" },
-              { n: "144k+", l: "Abonnenten", s: "YouTube & Podcast" },
-              { n: "6", l: "Länder", s: "selbst gelebt" },
+              { n: "25", l: "Jahre im Ausland", s: "seit 2000" },
+              { n: "6", l: "Länder selbst gelebt", s: "Schweiz, England, USA, Malta, Irland, Schottland" },
+              { n: "40+", l: "Jurisdiktionen analysiert", s: "für Mandanten in der Praxis umgesetzt" },
+              { n: "144k", l: "Reichweite", s: "Podcast, YouTube, Community" },
+              { n: "Mandanten", l: "aus allen Branchen", s: "Unternehmer, Freiberufler, Investoren" },
             ].map((s, i) => (
               <div key={i} className="pa-stat">
                 <div className="pa-stat-num">{s.n}</div>
@@ -297,112 +276,99 @@ export default function UeberUnsPage() {
         {/* 01 — DIE PLATTFORM */}
         <section className="pa-section pa-section-light">
           <div className="pa-inner">
-            <div className="pa-grid-2">
-              <Fade>
-                <div className="pa-chapter-label"><span className="pa-chapter-num">01</span><div className="pa-chapter-line" /><span className="pa-chapter-title">Die Plattform</span></div>
-                <h2 className="pa-h2-dark">Andere reden.<br /><em className="pa-gold">Wir setzen es um.</em></h2>
-              </Fade>
-              <Fade delay={1}>
-                <p className="pa-body-dark">Wer aus dem deutschsprachigen Raum auswandern will, sieht sich plötzlich mit Fragen konfrontiert, die im Heimatland nie eine Rolle gespielt haben. Wer bleiben will, aber Optionen für den Ernstfall aufbauen möchte, steht vor genau denselben Fragen.</p>
-                <p className="pa-body-dark"><a href="https://www.perspektiveausland.com" className="pa-link-dark">Perspektive Ausland</a> ist die Plattform, auf der diese Fragen beantwortet werden. Im <a href="https://www.perspektiveausland.com/podcast" className="pa-link-dark">Podcast</a> und auf <a href="https://www.youtube.com/c/PerspektiveAuslandPodcast" className="pa-link-dark">YouTube</a>. In der <a href="https://www.perspektiveausland.com/der-club" className="pa-link-dark">Community</a>. Und für unsere Mandanten in der konkreten Umsetzung — Strukturen, Anmeldungen, Konten, Pässe.</p>
-                <p className="pa-body-dark">Hinter Perspektive Ausland steht ein Beraterteam mit über zwei Jahrzehnten Erfahrung in <a href="https://www.perspektiveausland.com/themen/steuerplanung" className="pa-link-dark">internationaler Steuerplanung</a>, <a href="https://www.perspektiveausland.com/themen/wohnsitzverlagerung" className="pa-link-dark">Wohnsitzverlagerung</a> und <a href="https://www.perspektiveausland.com/themen/vermoegenssicherung" className="pa-link-dark">Vermögenssicherung</a>.</p>
-                <blockquote className="pa-blockquote">"Länderauswahl, internationales Steuerrecht, Wegzugsbesteuerung, Firmenstrukturen im Ausland, Aufenthaltstitel, Banking außerhalb der EU, Vermögenssicherung — das sind keine abstrakten Konzepte. Das ist unser Alltag."</blockquote>
-              </Fade>
-            </div>
-          </div>
-        </section>
-
-        {/* 02 — DER GRÜNDER */}
-        <section className="pa-section pa-section-dark">
-          <div className="pa-inner">
             <div className="pa-grid-portrait">
               <Fade>
                 <div className="pa-portrait-wrap">
-                  <img src={IMAGES.portrait} alt="Sebastian Sauerborn — Gründer von Perspektive Ausland" />
+                  <img src={IMAGES.portrait} alt="Sebastian Sauerborn, Gründer von Perspektive Ausland" />
                   <div className="pa-portrait-fade" />
-                  <div className="pa-portrait-credit">Sebastian Sauerborn — London & Austin, TX</div>
+                  <div className="pa-portrait-credit">Sebastian Sauerborn, London und Austin, Texas. Gründer von Perspektive Ausland.</div>
                 </div>
               </Fade>
               <Fade delay={1}>
-                <div className="pa-chapter-label"><span className="pa-chapter-num">02</span><div className="pa-chapter-line" /><span className="pa-chapter-title">Der Gründer</span></div>
-                <h2 className="pa-h2-light">Ich habe nicht beraten,<br /><em className="pa-gold">ich habe es gelebt.</em></h2>
-                <p className="pa-body-light">Ich bin Sebastian Sauerborn. Geboren 1977 in Freiburg im Breisgau, aufgewachsen im Hotzenwald nahe der Schweizer Grenze. Im Jahr 2000 habe ich Deutschland verlassen — nicht als Experiment, sondern als Entscheidung. Eine, die ich nie bereut habe.</p>
-                <p className="pa-body-light">Seitdem habe ich in sechs Ländern gelebt: der Schweiz, England, den USA, Malta, Irland und Schottland. Ich habe eine Ranch in Texas besessen, ein Beratungsunternehmen in der City of London aufgebaut, und ich habe mehr Steuerrechtsordnungen von innen gesehen als die meisten Berater von außen kennen.</p>
-                <p className="pa-body-light" style={{ marginBottom: "1.75rem" }}>Was ich meinen Mandanten rate, habe ich selbst durchlebt. Das ist kein Marketing. Das ist der Unterschied.</p>
-                <a href="https://www.sebsauerborn.com/about" className="pa-link-gold">Vollständige Biografie lesen →</a>
+                <div className="pa-chapter-label"><span className="pa-chapter-num">01</span><div className="pa-chapter-line" /><span className="pa-chapter-title">Die Plattform</span></div>
+                <h2 className="pa-h2-dark">Andere reden. <em className="pa-gold">Wir setzen es um.</em></h2>
+                <p className="pa-body-dark">Perspektive Ausland ist die deutschsprachige Plattform für alle, die ihren Wohnsitz, ihre Strukturen oder ihre Optionen ins Ausland verlagern wollen. Im <a href="https://www.perspektiveausland.com/podcast" className="pa-link-dark">Podcast</a>, auf <a href="https://www.youtube.com/c/PerspektiveAuslandPodcast" className="pa-link-dark">YouTube</a>, in der <a href="https://nhc.perspektiveausland.com/club" className="pa-link-dark">Community</a> und in der konkreten Mandatierung.</p>
+                <p className="pa-body-dark">Das Spektrum reicht von der ersten Idee bis zur vollständigen Umsetzung. Länderauswahl. Steuerstrukturen. Aufenthaltstitel. Bankkonten. Zweitpässe. Vermögenssicherung. Alles davon ist unser Alltag, kein Theorie-Kapitel aus einem Buch.</p>
+                <p className="pa-body-dark" style={{ marginBottom: "1.75rem" }}>Wer auswandern oder einen Plan B aufbauen will, hat Fragen, die im Heimatland nie eine Rolle gespielt haben. Die Plattform beantwortet sie. Die Mandatierung setzt sie um.</p>
               </Fade>
             </div>
           </div>
         </section>
 
-        {/* FREIBURG IMAGE */}
+        {/* COORD DIVIDER: Seit 2000 */}
         <div className="pa-landscape">
           <div className="pa-landscape-bg" style={{ backgroundImage: `url(${IMAGES.freiburg})`, backgroundPosition: "center 40%" }}>
             <div className="pa-landscape-overlay-b" />
             <div className="pa-landscape-caption">
-              <div className="pa-coords">47°59&apos;N 7°51&apos;E — Schwarzwald, Deutschland</div>
-              <h3 className="pa-landscape-h">Wo alles begann.</h3>
+              <div className="pa-coord-divider">Seit 2000 selbst im Ausland.</div>
+              <h3 className="pa-landscape-h">Vom Hotzenwald in die Welt.</h3>
             </div>
           </div>
         </div>
 
-        {/* 03 — HERKUNFT */}
-        <section className="pa-section pa-section-light">
+        {/* 02 — WARUM ICH */}
+        <section className="pa-section pa-section-dark">
           <div className="pa-inner">
-            <div className="pa-grid-2-wide">
+            <div className="pa-grid-2">
               <Fade>
-                <div className="pa-chapter-label"><span className="pa-chapter-num">03</span><div className="pa-chapter-line" /><span className="pa-chapter-title">Herkunft</span></div>
-                <h2 className="pa-h2-dark">Freiburg, der Hotzenwald,<br />und drei Lehrmeister</h2>
+                <div className="pa-chapter-label"><span className="pa-chapter-num">02</span><div className="pa-chapter-line" /><span className="pa-chapter-title">Warum ich</span></div>
+                <h2 className="pa-h2-light">Ich habe nicht beraten. <em className="pa-gold">Ich bin es gegangen.</em></h2>
                 <div className="pa-divider" />
-                <div className="pa-year-label">1977 — 2000</div>
               </Fade>
               <Fade delay={1}>
-                <p className="pa-body-dark">Ich bin das älteste von acht Kindern. Mein Vater Martin war Sozialarbeiter, Unternehmer und veröffentlichter Romanautor — ein katholischer Bohemien, der alles selbst in die Hand nehmen wollte. Als ich etwa vier Jahre alt war, zog die Familie in ein altes Pfarrhaus im Hotzenwald, wo mein Vater einen fast einen Hektar großen Gemüsegarten bewirtschaftete. Ich kaufte täglich frische Milch und Eier beim Nachbauern. Diese frühe Verbindung zur Erde, zum Handwerk, zum Selbstgemachten — sie hat mich nie losgelassen.</p>
-                <p className="pa-body-dark">Meine prägendsten intellektuellen Einflüsse der Kindheit? Karl May, Ronald Reagan und die Amerika-Träume meines Vaters. Ich nenne sie Karl, Lex und Ronnie. Sie haben mir beigebracht, groß zu denken.</p>
-                <p className="pa-body-dark">Mit fünfzehn Jahren, auf einem Pfadfinderlager, wurde sichtbar, was mich für den Rest meines Lebens antreiben würde: der Wille, nicht zu warten, sondern Ereignisse zu gestalten. Mit siebzehn begann ich in der Firma meines Vaters zu arbeiten — zunächst als Softwareentwickler nach einem zehntägigen Intensivkurs in Berlin.</p>
-                <p className="pa-body-dark" style={{ marginBottom: 0 }}>Deutschland war mein Ausgangspunkt. Es war nie mein Ziel.</p>
+                <p className="pa-body-light">Ich bin Sebastian Sauerborn. Im Jahr 2000 habe ich Deutschland verlassen, mit Anfang zwanzig, neugierig und mit dem Gefühl, dass die Welt größer sein muss als der Schwarzwald. Ich war kein Flüchtling und kein Steuerflüchtling. Ich war jemand, der wissen wollte, wie man woanders lebt.</p>
+                <p className="pa-body-light">Seitdem habe ich in sechs Ländern gewohnt: in der Schweiz bei PwC, in London bei Allianz Insurance, später mit eigenem Beratungsgeschäft in der City, in Texas auf einer Ranch, auf Malta, in Irland, in Schottland. Jedes Land war eine eigene Entscheidung mit eigenen Konsequenzen. Jedes hat mir etwas beigebracht, das auf der nächsten Station nützlich wurde.</p>
+                <p className="pa-body-light">Was meine Mandanten heute fragen, habe ich selbst durchgemacht. Welche Bank dich als Zugezogenen nimmt. Welches Finanzamt mit welcher Antwort zufrieden ist. Welche Aufenthaltsbewilligung in der Praxis funktioniert und welche nur auf dem Papier. Welche Steuerstruktur einen Auditor übersteht und welche kollabiert, sobald jemand genauer hinschaut.</p>
+                <p className="pa-body-light" style={{ marginBottom: "1.75rem" }}>Das ist der Unterschied zwischen Beratern, die einen Steuerrechts-Lehrgang gemacht haben, und Beratern, die selbst Auswanderer sind.</p>
+                <a href="https://www.sebsauerborn.com/about" className="pa-link-gold">Vollständige Biografie auf sebsauerborn.com →</a>
               </Fade>
             </div>
           </div>
         </section>
 
-        {/* LONDON IMAGE */}
-        <div className="pa-landscape">
-          <div className="pa-landscape-bg" style={{ backgroundImage: `url(${IMAGES.london})` }}>
-            <div className="pa-landscape-overlay-r" />
-            <div className="pa-landscape-caption-c">
-              <div style={{ maxWidth: "1280px", width: "100%", margin: "0 auto" }}>
-                <div className="pa-coords">51°30&apos;N 0°7&apos;W — City of London, England</div>
-                <h3 className="pa-landscape-h">Die Stadt, die aus mir einen Unternehmer machte.</h3>
-              </div>
+        {/* 03 — HERKUNFT UND WEG */}
+        <section className="pa-section pa-section-light">
+          <div className="pa-inner">
+            <div className="pa-grid-2-wide">
+              <Fade>
+                <div className="pa-coord-divider" style={{ color: "rgba(201,168,76,0.75)" }}>47°59&apos;N 7°51&apos;E · Freiburg im Breisgau</div>
+                <div className="pa-chapter-label"><span className="pa-chapter-num">03</span><div className="pa-chapter-line" /><span className="pa-chapter-title">Herkunft und Weg</span></div>
+                <h2 className="pa-h2-dark">Vom Hotzenwald in die Welt</h2>
+                <div className="pa-divider" />
+              </Fade>
+              <Fade delay={1}>
+                <p className="pa-body-dark">Geboren 1977 in Freiburg im Breisgau, aufgewachsen im Hotzenwald nahe der Schweizer Grenze. Mein Vater war Sozialarbeiter, Unternehmer und Autor. Mit Anfang zwanzig zog ich nach Zürich und fing bei PwC als IT-Berater an. Viereinhalb Jahre. In der Schweiz lernte ich Präzision, Diskretion und eine andere Verwaltungskultur kennen.</p>
+                <p className="pa-body-dark">2003 ging ich nach London zu Allianz Insurance. Drei Jahre Konzern, dann der Schritt in die Unabhängigkeit. Ich gründete in der City of London mein eigenes Beratungsgeschäft, zunächst klassische Steuerberatung, später eine breitere Gruppe mit Filmproduktion, Podcast und internationaler Mandatierung. Über die Jahre wuchs daraus, was heute STM Corporate Group heißt.</p>
+                <p className="pa-body-dark" style={{ marginBottom: 0 }}>Mit dem London-Geschäft kamen die internationalen Mandate. Texas, Malta, Irland, Singapur, später Dubai, Panama, die Philippinen. Jede Auslandsstation für mich persönlich war zugleich eine Station für Mandantenarbeit. Heute lebe ich zwischen London und Austin. Familie, Mandanten, Veranstaltungen und Podcast verteilen sich über beide Seiten des Atlantiks.</p>
+              </Fade>
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* 04 — ZÜRICH & LONDON */}
+        {/* 04 — STATIONEN (TIMELINE) */}
         <section className="pa-section pa-section-dark">
           <div className="pa-inner">
             <div className="pa-grid-2-wide-r">
               <Fade>
-                <div className="pa-chapter-label"><span className="pa-chapter-num">04</span><div className="pa-chapter-line" /><span className="pa-chapter-title">Zürich & London</span></div>
-                <h2 className="pa-h2-light">PwC Zürich. Allianz London.<br /><em className="pa-gold">Und dann: Unabhängigkeit.</em></h2>
-                <p className="pa-body-light">In meinen frühen Zwanzigern zog ich nach Zürich und trat bei PwC als IT-Berater ein — ein viereinhalbjähriger Einsatz, der meinen internationalen Horizont formte und meine technische Disziplin schärfte. Die Schweiz lehrte mich Präzision, Diskretion und den Wert einer Jurisdiktion, die ihre Bürger nicht als Melkkühe betrachtet.</p>
-                <p className="pa-body-light">Dann kam London. Ein Angebot von Allianz Insurance. Ich verabschiedete mich von meiner Familie in der Schweiz und flog an einem Montagmorgen nach London. Diese Entscheidung legte das Fundament meiner Karriere. In der City of London wurde ich schnell befördert und baute mein professionelles Netzwerk mit Absicht auf.</p>
-                <p className="pa-body-light">Nach einem Jahrzehnt in der Konzernwelt wechselte ich in die vollständige Unabhängigkeit. Ich gründete mein eigenes Beratungsunternehmen in der City of London: zunächst eine Buchhaltungsfirma, die zu einer breiten Gruppe heranwuchs, die Steuerberatung, Unternehmensberatung, Filmproduktion und Podcasting umfasst.</p>
-                <p className="pa-body-light" style={{ marginBottom: 0 }}>Im September 2008 eröffnete ich ein Büro in Miami. Während die Finanzkrise die Welt erschütterte, sah ich Chancen, wo andere Trümmer sahen.</p>
+                <div className="pa-chapter-label"><span className="pa-chapter-num">04</span><div className="pa-chapter-line" /><span className="pa-chapter-title">Stationen</span></div>
+                <h2 className="pa-h2-light">25 Jahre. <em className="pa-gold">Sechs Länder. Eine Praxis.</em></h2>
+                <p className="pa-body-light">Jede Station war eine eigene Entscheidung mit eigenen Konsequenzen. Was auf dem Papier wie eine Biografie aussieht, ist in der Praxis ein Archiv aus Erfahrungen, die direkt in die Mandatierung einfließen.</p>
               </Fade>
               <Fade delay={1}>
                 <div className="pa-timeline">
                   <div className="pa-timeline-title">Stationen</div>
                   {[
-                    ["2000","Zürich","PwC — IT-Consulting"],
+                    ["2000","Zürich","PwC, IT-Consulting"],
                     ["2003","London","Allianz Insurance"],
-                    ["2006","London","Eigene Kanzlei gegründet"],
+                    ["2006","London","Eigene Kanzlei in der City"],
                     ["2008","Miami","US-Expansion"],
-                    ["2011","Austin, TX","Vaquera Ranch"],
-                    ["2014","London","Rückkehr & Aufbau"],
-                    ["2018","Malta & Irland","Europäische Expansion"],
-                    ["heute","London & Austin","Perspektive Ausland"],
+                    ["2011","Bastrop County, Texas","Vaquera Ranch"],
+                    ["2014","London","Aufbau der internationalen Mandatsstruktur"],
+                    ["2017","Malta","Mediterrane Basis, EU-Holdingstrukturen"],
+                    ["2019","Irland","Irish Foreign Births Register, EU-Anker"],
+                    ["2021","Schottland","Familienstandort, Bildungsentscheidung"],
+                    ["2023","Austin, TX","STM Corporate Group US-Hauptsitz"],
+                    ["heute","London und Austin","Perspektive Ausland"],
                   ].map(([y,c,d]) => (
                     <div key={y} className="pa-timeline-row">
                       <span className="pa-timeline-year">{y}</span>
@@ -417,11 +383,11 @@ export default function UeberUnsPage() {
 
         {/* TEXAS IMAGE */}
         <div className="pa-landscape">
-          <div className="pa-landscape-bg" style={{ backgroundImage: `url(${IMAGES.texas})`, backgroundPosition: "center 30%", height: "420px" }}>
+          <div className="pa-landscape-bg" style={{ backgroundImage: `url(${IMAGES.texas})`, backgroundPosition: "center 30%" }}>
             <div className="pa-landscape-overlay-b" />
             <div className="pa-landscape-caption">
-              <div className="pa-coords">30°5&apos;N 97°3&apos;W — Bastrop County, Texas</div>
-              <h3 className="pa-landscape-h">Texas hat mich gebrochen.<br /><em style={{ color: "#C9A84C" }}>Und gehärtet.</em></h3>
+              <div className="pa-coord-divider">30°5&apos;N 97°3&apos;W · Bastrop County, Texas</div>
+              <h3 className="pa-landscape-h">Eine Ranch in Bastrop County.</h3>
             </div>
           </div>
         </div>
@@ -431,39 +397,41 @@ export default function UeberUnsPage() {
           <div className="pa-inner">
             <div className="pa-grid-2-wide">
               <Fade>
-                <div className="pa-chapter-label"><span className="pa-chapter-num">05</span><div className="pa-chapter-line" /><span className="pa-chapter-title">Texas</span></div>
-                <h2 className="pa-h2-dark">Die Vaquera Ranch —<br />das schönste Kapitel</h2>
+                <div className="pa-chapter-label"><span className="pa-chapter-num">05</span><div className="pa-chapter-line" /><span className="pa-chapter-title">Texas und die Ranch</span></div>
+                <h2 className="pa-h2-dark">Eine Ranch in Bastrop County</h2>
                 <div className="pa-divider" />
-                <div className="pa-year-label">2011 — 2013</div>
+                <div className="pa-year-label">2011</div>
               </Fade>
               <Fade delay={1}>
-                <p className="pa-body-dark">Im Sommer 2010, auf einer Reise in der Nähe von Austin, Texas — die Landschaft, das Licht, die Weite davon — ließ es mich nicht mehr los. Im Frühjahr 2011 kauften wir die Vaquera Ranch in Bastrop County, etwa 70 Kilometer südöstlich von Austin: ein Farmhaus, eine rote Scheune, ein Cottage, ein großer Teich, eine Mischung aus Weide und Wald.</p>
-                <p className="pa-body-dark">Es war die schönste Zeit meines Lebens. Ich arbeitete ab fünf Uhr morgens in einer Hütte auf dem Grundstück, während die Kinder auf der Ranch lebten und nach dem One Day Academy-Modell unterrichtet wurden.</p>
-                <p className="pa-body-dark">Im Juli 2012 rief meine Tante aus Deutschland an. Mein Vater Martin war gestorben — 59 Jahre alt, Aortenaneurysma. Ich flog nach Freiburg zur Beerdigung. Meine Brüder und ich trugen den Sarg.</p>
-                <p className="pa-body-dark">Zurück in Texas zerbrach die Ehe. Ich stand allein mit sieben Kindern da. Texas hatte mich gebrochen. Aber es hatte mich auch gehärtet. Ich kehrte nach London zurück und baute alles neu auf — diesmal mit mehr Klarheit darüber, was zählt und was nicht.</p>
-                <blockquote className="pa-blockquote">"Das Land, die Tiere, die Idee eines selbstversorgenden Lebens — sie haben mich nie losgelassen. In absehbarer Zeit werde ich eine neue Ranch erwerben."</blockquote>
+                <p className="pa-body-dark">Im Frühjahr 2011 erwarb ich die Vaquera Ranch in Bastrop County, etwa siebzig Kilometer südöstlich von Austin. Ein altes Farmhaus, eine rote Scheune, ein großer Teich, ein Mix aus Weideland und Wald.</p>
+                <p className="pa-body-dark">Texas war das Kapitel, in dem ich die amerikanische Unternehmerkultur aus erster Hand erlebt habe. Niedrige Hürden für Gründung, ein Rechts- und Steuersystem, das auf Eigenverantwortung baut, und eine kulturelle Erwartung, dass man etwas selbst aufbaut, anstatt darauf zu warten, dass jemand anderes es bereitstellt.</p>
+                <p className="pa-body-dark" style={{ marginBottom: 0 }}>Aus der Ranch wurde der erste systematische Zugang zum US-Markt für unsere Mandanten. Die Erkenntnisse aus dem operativen Geschäft dort, von der LLC-Struktur über das US-Banking bis zum E-2 Investorenvisum, sind heute Standardbausteine in der Beratung von DACH-Unternehmern, die in die USA wollen. STM Corporate Group hat heute seinen Hauptsitz in Austin.</p>
               </Fade>
             </div>
           </div>
         </section>
 
-        {/* 06 — PERSPEKTIVE AUSLAND ENTSTEHT */}
+        {/* 06 — DIE PLATTFORM ENTSTEHT */}
         <section className="pa-section pa-section-dark">
           <div className="pa-inner">
             <Fade>
               <div style={{ textAlign: "center", marginBottom: "3rem" }}>
                 <div className="pa-chapter-label" style={{ justifyContent: "center" }}><span className="pa-chapter-num">06</span><div className="pa-chapter-line" /><span className="pa-chapter-title">Die Plattform entsteht</span></div>
-                <h2 className="pa-h2-center">Wie aus einer Idee<br /><em className="pa-gold">die wichtigste deutschsprachige Plattform</em><br />zum Thema Auswandern wurde</h2>
+                <h2 className="pa-h2-center">Vom Beratungsalltag zum Podcast</h2>
               </div>
             </Fade>
             <div className="pa-grid-2">
               <Fade delay={1}>
-                <p className="pa-body-light">Nach meiner Rückkehr nach London baute ich die STM Corporate Group zu einer der führenden deutschsprachigen Kanzleien für internationale Steueroptimierung, Firmengründung im Ausland und Auswanderungsberatung auf. Die Nachfrage war enorm — und ich merkte, dass die meisten Menschen nicht einmal die richtigen Fragen stellten, weil sie nicht wussten, was möglich ist.</p>
-                <p className="pa-body-light" style={{ marginBottom: 0 }}>So entstand <a href="https://www.perspektiveausland.com" className="pa-link-gold">Perspektive Ausland</a> — zunächst als Podcast, dann als YouTube-Kanal, dann als vollständige Plattform mit Community, Veranstaltungen und konkreter Beratung. Heute ist es die meistgehörte deutschsprachige Ressource für Auswanderer und Plan-B-Denker: über 144.000 Abonnenten, regelmäßig viral.</p>
+                <p className="pa-body-light">In der täglichen Arbeit fiel mir immer das Gleiche auf. Die Mandanten kamen nicht mit den Fragen, die sie hätten stellen sollen. Sie kamen mit den Fragen, von denen sie wussten, dass es sie gibt. Was sie nicht wussten, fehlte komplett.</p>
+                <p className="pa-body-light" style={{ marginBottom: 0 }}>Daraus entstand der Wunsch, das verfügbare Wissen außerhalb der Beratungsbeziehung breit zugänglich zu machen. Zuerst als Podcast, dann auf YouTube, dann mit Community und Live-Veranstaltungen. Daniel Taborek ist seit Anfang an der zweite Host. Wir decken zusammen das gesamte Spektrum ab, von der ersten Frage bis zur konkreten Umsetzung.</p>
               </Fade>
               <Fade delay={2}>
-                <p className="pa-body-light">Co-moderiert wird der <a href="https://www.perspektiveausland.com/podcast" className="pa-link-gold">Podcast</a> mit Daniel Taborek — einem der schärfsten Köpfe im deutschsprachigen Raum zu Fragen der internationalen Steuerplanung und Wohnsitzverlagerung. Gemeinsam decken wir das gesamte Spektrum ab: von der ersten Überlegung bis zur vollständigen Umsetzung.</p>
-                <p className="pa-body-light" style={{ marginBottom: 0 }}>Perspektive Ausland ist keine Theorie. Es ist die Destillation von über 25 Jahren gelebter Erfahrung in mehr als 40 Jurisdiktionen — aufbereitet für <a href="https://www.perspektiveausland.com/themen/unternehmer" className="pa-link-gold">Unternehmer</a>, <a href="https://www.perspektiveausland.com/themen/investoren" className="pa-link-gold">Investoren</a> und <a href="https://www.perspektiveausland.com/themen/freiberufler" className="pa-link-gold">Freiberufler</a> aus dem deutschsprachigen Raum.</p>
+                <p className="pa-body-light">Heute hat Perspektive Ausland eine substantielle Reichweite im deutschsprachigen Raum. Podcast und YouTube zusammen erreichen sechsstellige Hörer- und Zuschauerzahlen. Die Community trifft sich online und auf jährlichen Mitgliederveranstaltungen in London und anderen Standorten. Aus dem Hörerkreis kommen viele unserer Mandanten.</p>
+                <div style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap", marginTop: "0.5rem" }}>
+                  <a href="https://www.perspektiveausland.com/podcast" className="pa-link-gold">Zum Podcast</a>
+                  <a href="https://www.youtube.com/c/PerspektiveAuslandPodcast" className="pa-link-gold">YouTube-Kanal</a>
+                  <a href="https://nhc.perspektiveausland.com/club" className="pa-link-gold">Der Club</a>
+                </div>
               </Fade>
             </div>
           </div>
@@ -475,34 +443,34 @@ export default function UeberUnsPage() {
             <div className="pa-landscape-overlay-l" />
             <div className="pa-landscape-caption-r">
               <div style={{ maxWidth: "520px", textAlign: "right" }}>
-                <div className="pa-coords">25°12&apos;N 55°16&apos;E — Dubai, Vereinigte Arabische Emirate</div>
-                <h3 className="pa-landscape-h" style={{ textAlign: "right" }}>40+ Jurisdiktionen.<br /><em style={{ color: "#C9A84C" }}>Eine Überzeugung.</em></h3>
+                <div className="pa-coord-divider">40+ Jurisdiktionen. Eine Praxis.</div>
+                <h3 className="pa-landscape-h" style={{ textAlign: "right" }}>Sechs Bereiche, in denen wir konkret beraten.</h3>
               </div>
             </div>
           </div>
         </div>
 
-        {/* 07 — EXPERTISE */}
+        {/* 07 — WORAN WIR ARBEITEN */}
         <section className="pa-section pa-section-light">
           <div className="pa-inner">
             <Fade>
               <div style={{ marginBottom: "3rem" }}>
-                <div className="pa-chapter-label"><span className="pa-chapter-num">07</span><div className="pa-chapter-line" /><span className="pa-chapter-title">Expertise</span></div>
-                <h2 className="pa-h2-dark">Was wir wirklich können —<br /><em className="pa-gold">und was nicht</em></h2>
+                <div className="pa-chapter-label"><span className="pa-chapter-num">07</span><div className="pa-chapter-line" /><span className="pa-chapter-title">Woran wir arbeiten</span></div>
+                <h2 className="pa-h2-dark">Sechs Bereiche, in denen wir konkret beraten</h2>
               </div>
             </Fade>
             <div className="pa-cards">
               {[
-                { icon: "⚖️", title: "Internationale Steuerplanung", desc: "Territoriale vs. weltweite Besteuerung, Wegzugsbesteuerung, Exit-Strategien, Non-Dom-Status, CRS/FATCA-konforme Strukturen. Wir kennen die Unterschiede zwischen dem, was Berater versprechen, und dem, was tatsächlich funktioniert.", link: "https://www.perspektiveausland.com/themen/steuerplanung", lt: "Mehr zur Steuerplanung" },
-                { icon: "🏠", title: "Wohnsitzverlagerung", desc: "Dubai, Malta, Singapur, Schweiz, Paraguay, Panama, Georgien, Mauritius, Thailand, Portugal, Irland, Philippinen — wir kennen die Realität dieser Jurisdiktionen, nicht nur die Broschüren.", link: "https://www.perspektiveausland.com/themen/wohnsitz", lt: "Länder im Überblick" },
-                { icon: "🏢", title: "Firmenstrukturen im Ausland", desc: "US-LLCs für Nicht-Residenten, Singapur-Gesellschaften, Offshore-Strukturen, Malta-Holdingstrukturen. Wir bauen Strukturen, die rechtlich sauber, steuerlich effizient und langfristig tragfähig sind.", link: "https://www.perspektiveausland.com/themen/firmenstrukturen", lt: "Firmenstrukturen erkunden" },
-                { icon: "🛂", title: "Zweitpass & Staatsbürgerschaft", desc: "Karibische Pässe, Malta, Portugal, Schweizer Einbürgerung, Philippinen SRRV — wir erklären den Unterschied zwischen Marketing und Realität.", link: "https://www.perspektiveausland.com/themen/zweitpass", lt: "Zweitpass-Optionen" },
-                { icon: "🏦", title: "Banking außerhalb der EU", desc: "Internationale Bankkonten, Kreditkarten außerhalb des EU-Systems, Zugang zu US-Finanzinfrastruktur als Nicht-Resident. Wir navigieren durch das, was nach CRS und FATCA noch möglich ist.", link: "https://www.perspektiveausland.com/themen/banking", lt: "Banking-Lösungen" },
-                { icon: "🛡️", title: "Vermögenssicherung", desc: "Diversifikation über Jurisdiktionen, Asset Protection, Strukturen, die Vermögen vor staatlichem Zugriff schützen. Nicht als Rebellion — sondern als vernünftige Planung.", link: "https://www.perspektiveausland.com/themen/vermoegenssicherung", lt: "Vermögen schützen" },
+                { n: "01", title: "Internationale Steuerplanung", desc: "Territoriale und weltweite Besteuerung. Wegzugsthematik aus DACH. Non-Dom-Regime in Malta, Irland, UK. Aufenthaltsregime mit reduzierter oder territorialer Besteuerung. Wir kennen die Praxis dieser Strukturen in mehr als 40 Jurisdiktionen, nicht nur ihre Marketing-Versprechen.", link: "https://themen.perspektiveausland.com/themen/auswandern", lt: "Mehr zu Auswandern" },
+                { n: "02", title: "Wohnsitzverlagerung und Aufenthalt", desc: "USA, Schweiz, Malta, Spanien, Georgien, Paraguay, Panama, Philippinen, Sansibar. Wir begleiten die Wohnsitzverlagerung von der ersten Standort-Frage über die Aufenthaltsbewilligung bis zur operativen Einrichtung im Zielland.", link: "https://themen.perspektiveausland.com/themen/plan-b-residence", lt: "Plan B Residence" },
+                { n: "03", title: "Firmenstrukturen im Ausland", desc: "US-LLC für DACH-Mandanten unter nullsteuer.llc. UK Limited. Singapur-Gesellschaften. Maltesische Holdingstrukturen. Wir bauen Strukturen, die rechtlich sauber, steuerlich effizient und über mehrere Jurisdiktionen tragfähig sind.", link: "https://themen.perspektiveausland.com/themen/perpetual-traveling", lt: "Mehr zu Perpetual Traveling" },
+                { n: "04", title: "Zweitpass und Staatsbürgerschaft", desc: "Irische Einbürgerung über Foreign Births Register. Serbische Einbürgerung. Schweizer Bürgerrecht. CBI Sierra Leone. Panama Travel Document. Honorarkonsul-Konstellationen, wo realistisch.", link: "https://themen.perspektiveausland.com/themen/zweitpass", lt: "Zweitpass-Optionen" },
+                { n: "05", title: "Banking außerhalb der EU", desc: "US-Banking, Singapur, Philippinen. Onboarding-Begleitung mit vorbereiteter Source-of-Wealth-Dokumentation. Übergang von EU-Brokern zu außereuropäischen Strukturen.", link: "https://themen.perspektiveausland.com/themen/vermoegenssicherung", lt: "Vermögenssicherung" },
+                { n: "06", title: "Krypto-Strukturen", desc: "DAC8, MiCA, CARF. Self-Custody-Architektur. Auscash-Strategie unter §23 EStG. Wohnsitze für Krypto-Investoren.", link: "https://themen.perspektiveausland.com/themen/krypto", lt: "Krypto" },
               ].map((c, i) => (
                 <Fade key={i}>
                   <div className="pa-card">
-                    <div className="pa-card-icon">{c.icon}</div>
+                    <div className="pa-card-num">{c.n}</div>
                     <h3 className="pa-card-title">{c.title}</h3>
                     <p className="pa-card-desc">{c.desc}</p>
                     <a href={c.link} className="pa-card-link">{c.lt} →</a>
@@ -513,52 +481,44 @@ export default function UeberUnsPage() {
           </div>
         </section>
 
-        {/* 08 — HALTUNG */}
+        {/* 08 — DER SCOUT-GEDANKE */}
         <section className="pa-section pa-section-dark">
           <div className="pa-inner">
-            <div className="pa-grid-2-wide">
+            <div className="pa-grid-2">
               <Fade>
+                <div className="pa-coord-divider">Be prepared. Have options. Build before you need them.</div>
                 <div className="pa-chapter-label"><span className="pa-chapter-num">08</span><div className="pa-chapter-line" /><span className="pa-chapter-title">Haltung</span></div>
-                <h2 className="pa-h2-light">Was wir glauben —<br /><em className="pa-gold">und warum</em></h2>
+                <h2 className="pa-h2-light">Auswandern als nächstes Kapitel</h2>
               </Fade>
               <Fade delay={1}>
-                <div className="pa-beliefs">
-                  {[
-                    { t: "Über den Staat", b: "Der Staat ist nicht dein Partner — er ist dein größter Gläubiger, dein aufdringlichster Nachbar und potenziell dein Gefängniswärter. Die Antwort ist nicht Rebellion, sondern Ausgang: legal, strukturiert, dauerhaft." },
-                    { t: "Über Steuern", b: "Besteuerung über das hinaus, was zur Finanzierung grundlegender öffentlicher Güter notwendig ist, ist Diebstahl. Mehr Steuern zu zahlen als das Gesetz verlangt, ist keine Tugend — es ist Naivität." },
-                    { t: "Über Freiheit", b: "Freiheit wird nicht geschenkt — sie wird aufgebaut, erhalten und verteidigt. Sie erfordert Geld, Planung und die Bereitschaft zu handeln, bevor das Fenster sich schließt." },
-                    { t: "Über Deutschland", b: "Ich liebe Deutschland, aber ich bin nicht blind für seine Pathologien: Obrigkeitshörigkeit, eine Schuldkultur, die ehrliche Debatten verhindert. Ich bin gegangen — und ich schreibe über diese Entscheidung mit Klarheit und ohne Entschuldigung." },
-                  ].map((b, i) => (
-                    <div key={i} className="pa-belief">
-                      <div className="pa-belief-title">{b.t}</div>
-                      <p className="pa-belief-text">{b.b}</p>
-                    </div>
-                  ))}
-                </div>
+                <p className="pa-body-light">Auswandern ist für unsere Mandanten in der Regel keine Flucht. Es ist eine Entscheidung für etwas, nicht gegen etwas. Eine neue berufliche Bühne. Ein anderes Lebensgefühl. Eine Familienentscheidung. Der nächste Standort für ein Unternehmen, das größer denken will als die heimische Region.</p>
+                <p className="pa-body-light">Plan B funktioniert genauso. Es ist das Pfadfinder-Prinzip für Erwachsene: bereit sein. Optionen schaffen. Infrastruktur aufbauen, bevor du sie brauchst. Niemand bricht in Panik auf, wenn die Schritte schon gegangen sind. Und niemand bereut die Vorbereitung, wenn man sie zum Glück nie aktivieren muss.</p>
+                <p className="pa-body-light">Was wir nicht sind: ein Anti-Heimat-Projekt. Wir sind nicht gegen Deutschland, Österreich oder die Schweiz. Im Gegenteil. Unsere Mandanten sind in der Regel diejenigen, die ihre Heimatländer aus sicherer internationaler Distanz am liebsten haben. Mobilität schafft Perspektive. Distanz schafft Wertschätzung.</p>
+                <p className="pa-body-light" style={{ marginBottom: 0 }}>Was wir machen: Wir helfen Menschen, ihre Optionen in der Welt zu nutzen. Legal, sauber dokumentiert, gegenüber den Finanzbehörden transparent. Internationale Mobilität ist ein Grundrecht in der EU, und mit den richtigen Strukturen ein nutzbares Werkzeug für alle, die sie als Werkzeug verstehen.</p>
               </Fade>
             </div>
           </div>
         </section>
 
-        {/* 09 — PLAN B */}
+        {/* 09 — DAS PLAN-B-KONZEPT */}
         <section className="pa-section pa-section-light">
           <div className="pa-inner">
             <div className="pa-grid-2">
               <Fade>
-                <div className="pa-chapter-label"><span className="pa-chapter-num">09</span><div className="pa-chapter-line" /><span className="pa-chapter-title">Das Framework</span></div>
-                <h2 className="pa-h2-dark">Der Plan B —<br /><em className="pa-gold">Sebastians wichtigster intellektueller Beitrag</em></h2>
-                <p className="pa-body-dark">Das Plan-B-Konzept ist ein strukturierter, multi-jurisdiktionaler Ansatz für persönliche Souveränität. Es geht nicht darum, Deutschland zu hassen. Es geht darum, Optionen zu haben — bevor du sie brauchst.</p>
-                <p className="pa-body-dark">Ein vollständiger Plan B umfasst: einen primären Steuerwohnsitz in einer Niedrigsteuer- oder Territorialbesteuerungsjurisdiktion; einen zweiten Wohnsitz oder eine zweite Staatsbürgerschaft als Backup; Vermögensdiversifikation über Jurisdiktionen; Zugang zu internationalem Banking; und eine physische Präsenzstrategie.</p>
-                <a href="https://www.perspektiveausland.com/plan-b" className="pa-btn-primary" style={{ marginTop: "0.5rem" }}>Plan B aufbauen →</a>
+                <div className="pa-chapter-label"><span className="pa-chapter-num">09</span><div className="pa-chapter-line" /><span className="pa-chapter-title">Das Plan-B-Konzept</span></div>
+                <h2 className="pa-h2-dark">Fünf Bausteine, die ineinandergreifen</h2>
+                <p className="pa-body-dark">Ein vollständiger Plan B ist nicht eine Maßnahme, sondern ein Zusammenspiel aus fünf Komponenten, die als Set ihre volle Wirkung entfalten.</p>
+                <p className="pa-body-dark" style={{ marginBottom: "1.75rem" }}>Welche Komponente für dich Priorität hat, hängt von deiner Ausgangslage ab. In der Mandatierung priorisieren wir gemeinsam, was zuerst kommt und was als Folgeprojekt sinnvoller geplant wird.</p>
+                <a href="https://themen.perspektiveausland.com/themen/plan-b-residence" className="pa-link-inline">Plan B Residence im Detail →</a>
               </Fade>
               <Fade delay={1}>
                 <div className="pa-steps">
                   {[
-                    ["01","Primärer Steuerwohnsitz","Niedrigsteuer- oder Territorialbesteuerungsjurisdiktion — UAE, Malta, Singapur, Schweiz, Paraguay, Panama"],
-                    ["02","Zweiter Wohnsitz / Zweitpass","Backup-Jurisdiktion, Reisefreiheit, Sicherheitsnetz für den Ernstfall"],
-                    ["03","Vermögensdiversifikation","Assets über mehrere Jurisdiktionen verteilt — kein Single Point of Failure"],
-                    ["04","Internationales Banking","Konten außerhalb des EU-Systems, Zugang zu US-Finanzinfrastruktur"],
-                    ["05","Physische Präsenzstrategie","183-Tage-Regeln, Tie-Breaker-Tests, dokumentierte Aufenthalte"],
+                    ["01","Steuerwohnsitz","in einer territorial besteuerten oder Non-Dom-Jurisdiktion"],
+                    ["02","Zweitpass oder zweite Aufenthaltsbewilligung","als Reisefreiheits-Reserve"],
+                    ["03","Vermögensdiversifikation","über mehrere geografische Jurisdiktionen"],
+                    ["04","Banking außerhalb der EU","als operative Versicherung"],
+                    ["05","Dokumentierte physische Präsenz","im jeweiligen Wohnsitzland"],
                   ].map(([n,t,d]) => (
                     <div key={n} className="pa-step">
                       <div className="pa-step-num">{n}</div>
@@ -571,17 +531,20 @@ export default function UeberUnsPage() {
           </div>
         </section>
 
-        {/* CTA */}
+        {/* CLOSING CTA */}
         <div className="pa-cta">
           <div className="pa-cta-inner">
             <Fade>
-              <div className="pa-cta-label">Bereit zu handeln</div>
-              <h2>Das Fenster ist offen.<br /><em className="pa-gold">Aber nicht für immer.</em></h2>
-              <p>Die regulatorischen Fenster für legale Steueroptimierung und Wohnsitzverlagerung schließen sich langsam. Wer jetzt handelt, hat Optionen. Wer wartet, zahlt den Preis.</p>
+              <div className="pa-cta-eyebrow">Bereit zu starten</div>
+              <h2>Das nächste Kapitel beginnt mit einem Gespräch</h2>
+              <p>Im Erstgespräch klären wir, welches Land, welche Struktur und welche Reihenfolge zu deiner konkreten Situation passt. Eine Stunde, ohne weitere Verpflichtungen.</p>
               <div className="pa-cta-btns">
-                <a href="https://www.perspektiveausland.com/termin" className="pa-btn-primary">Erstgespräch buchen</a>
-                <a href="https://www.perspektiveausland.com/podcast" className="pa-btn-outline">Podcast hören</a>
-                <a href="https://www.perspektiveausland.com/der-club" className="pa-btn-outline">Der Club</a>
+                <a href="https://mandatierung.perspektiveausland.com/" className="pa-btn-primary">Erstgespräch buchen</a>
+              </div>
+              <div className="pa-cta-secondary">
+                <a href="https://www.perspektiveausland.com/podcast">Podcast hören</a>
+                <a href="https://nhc.perspektiveausland.com/club">Der Club</a>
+                <a href="https://verteiler.perspektiveausland.com/">Newsletter</a>
               </div>
             </Fade>
           </div>
@@ -592,12 +555,29 @@ export default function UeberUnsPage() {
           <div className="pa-footer-grid">
             <div>
               <div className="pa-footer-brand">Perspektive <span style={{ color: "#C9A84C" }}>Ausland</span></div>
-              <p className="pa-footer-desc">Die Plattform für deutschsprachige Unternehmer, Freiberufler und Investoren. Auswandern, Plan B und Strukturen außerhalb der EU.</p>
+              <p className="pa-footer-desc">Die deutschsprachige Plattform für internationale Wohnsitzverlagerung, Plan B und Strukturen außerhalb der EU.</p>
             </div>
             {[
-              { t: "Themen", links: [["Steuerplanung","https://www.perspektiveausland.com/themen/steuerplanung"],["Wohnsitz","https://www.perspektiveausland.com/themen/wohnsitz"],["Zweitpass","https://www.perspektiveausland.com/themen/zweitpass"],["Banking","https://www.perspektiveausland.com/themen/banking"],["Vermögen","https://www.perspektiveausland.com/themen/vermoegenssicherung"]] },
-              { t: "Plattform", links: [["Podcast","https://www.perspektiveausland.com/podcast"],["YouTube","https://www.youtube.com/c/PerspektiveAuslandPodcast"],["Der Club","https://www.perspektiveausland.com/der-club"],["Veranstaltungen","https://www.perspektiveausland.com/events"],["Newsletter","https://verteiler.perspektiveausland.com/"]] },
-              { t: "Kontakt", links: [["Termin buchen","https://www.perspektiveausland.com/termin"],["Strategie anfragen","https://www.perspektiveausland.com/loesungen"],["kontakt@perspektiveausland.com","mailto:kontakt@perspektiveausland.com"],["sebsauerborn.com","https://www.sebsauerborn.com"]] },
+              { t: "Themen", links: [
+                ["Auswandern","https://themen.perspektiveausland.com/themen/auswandern"],
+                ["Plan B Residence","https://themen.perspektiveausland.com/themen/plan-b-residence"],
+                ["Zweitpass","https://themen.perspektiveausland.com/themen/zweitpass"],
+                ["Vermögenssicherung","https://themen.perspektiveausland.com/themen/vermoegenssicherung"],
+                ["Perpetual Traveling","https://themen.perspektiveausland.com/themen/perpetual-traveling"],
+                ["Krypto","https://themen.perspektiveausland.com/themen/krypto"],
+              ]},
+              { t: "Plattform", links: [
+                ["Podcast","https://www.perspektiveausland.com/podcast"],
+                ["YouTube","https://www.youtube.com/c/PerspektiveAuslandPodcast"],
+                ["Der Club","https://nhc.perspektiveausland.com/club"],
+                ["Veranstaltungen","https://events.perspektiveausland.com/"],
+                ["Newsletter","https://verteiler.perspektiveausland.com/"],
+              ]},
+              { t: "Kontakt", links: [
+                ["Erstgespräch buchen","https://mandatierung.perspektiveausland.com/"],
+                ["kontakt@perspektiveausland.com","mailto:kontakt@perspektiveausland.com"],
+                ["sebsauerborn.com","https://www.sebsauerborn.com"],
+              ]},
             ].map((col, i) => (
               <div key={i}>
                 <div className="pa-footer-col-title">{col.t}</div>
@@ -608,7 +588,7 @@ export default function UeberUnsPage() {
             ))}
           </div>
           <div className="pa-footer-bottom">
-            <span className="pa-footer-copy">© {new Date().getFullYear()} Perspektive Ausland. Alle Rechte vorbehalten.</span>
+            <span className="pa-footer-copy">© {new Date().getFullYear()} Perspektive Ausland · Andere reden. Wir setzen es um.</span>
             <div className="pa-footer-legal">
               <a href="https://www.perspektiveausland.com/datenschutz">Datenschutz</a>
               <a href="https://www.perspektiveausland.com/impressum">Impressum</a>

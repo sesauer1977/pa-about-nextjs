@@ -10,11 +10,6 @@ export const metadata: Metadata = {
   },
   description:
     "Perspektive Ausland ist die führende deutschsprachige Plattform für Auswandern, Plan B und internationale Steuerplanung. Gegründet von Sebastian Sauerborn — 25 Jahre Erfahrung, 40+ Jurisdiktionen, 1.000+ Mandanten.",
-  keywords: [
-    "Auswandern", "Plan B", "internationale Steuerplanung", "Wegzugsbesteuerung",
-    "Wohnsitzverlagerung", "Vermögenssicherung", "Zweitpass", "Banking außerhalb EU",
-    "Sebastian Sauerborn", "Perspektive Ausland", "Podcast Auswandern",
-  ],
   authors: [{ name: "Sebastian Sauerborn", url: "https://www.sebsauerborn.com" }],
   creator: "Sebastian Sauerborn",
   publisher: "Perspektive Ausland",

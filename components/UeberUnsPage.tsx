@@ -16,7 +16,7 @@ const IMAGES = {
   london: "https://d2xsxph8kpxj0f.cloudfront.net/310519663489425504/SEVjg9oq8Re7WUYduAWprk/london_city_dusk-T7gtmCUFjrgCTkzN4QWCGb.webp",
   texas: "https://d2xsxph8kpxj0f.cloudfront.net/310519663489425504/SEVjg9oq8Re7WUYduAWprk/texas_ranch_sunrise-HQVq2TYPfGwUyWudb7Z7H8.webp",
   dubai: "https://d2xsxph8kpxj0f.cloudfront.net/310519663489425504/SEVjg9oq8Re7WUYduAWprk/dubai_singapore_skyline-VAaxKDsd9J2Tiji5gCxNFA.webp",
-  portrait: "https://d2xsxph8kpxj0f.cloudfront.net/310519663489425504/P3TXF7amc3KgBxPe5qp4Jr/sebastian_portrait_16x9_v2_31e9de34.webp",
+  portrait: "/manus-storage/sebastian_portrait_16x9_v2_58730ab7.webp",
 };
 
 const RESPONSIVE_CSS = `
@@ -241,7 +241,7 @@ export default function UeberUnsPage() {
           <div className="pa-header-inner">
             <a href="https://www.perspektiveausland.com" className="pa-header-logo">
               <img
-                src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663489425504/yXZrDfTMyVGljsjL.png"
+                src="/manus-storage/pa_logo_white_83e5af61.webp"
                 alt="Perspektive Ausland"
               />
             </a>

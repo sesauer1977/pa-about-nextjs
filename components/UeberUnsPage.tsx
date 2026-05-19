@@ -130,11 +130,11 @@ const RESPONSIVE_CSS = `
   .pa-cards { display: grid; grid-template-columns: 1fr; gap: 1.25rem; width: 100%; }
   @media (min-width: 640px) { .pa-cards { grid-template-columns: 1fr 1fr; } }
   @media (min-width: 1024px) { .pa-cards { grid-template-columns: repeat(3, 1fr); } }
-  .pa-card { background: #fff; border: 1px solid rgba(11,28,45,0.08); padding: 1.75rem; transition: box-shadow 0.3s, transform 0.3s; }
+  .pa-card { background: #fff; border: 1px solid rgba(11,28,45,0.08); padding: 1.75rem; transition: box-shadow 0.3s, transform 0.3s; display: flex; flex-direction: column; height: 100%; }
   .pa-card:hover { box-shadow: 0 8px 32px rgba(11,28,45,0.1); transform: translateY(-3px); }
   .pa-card-num { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.15em; color: var(--gold); margin-bottom: 0.75rem; }
   .pa-card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 700; color: var(--navy); margin: 0 0 0.625rem; line-height: 1.3; }
-  .pa-card-desc { font-family: 'Crimson Pro', serif; font-size: 1.05rem; line-height: 1.7; color: #444; margin: 0 0 1.1rem; }
+  .pa-card-desc { font-family: 'Crimson Pro', serif; font-size: 1.05rem; line-height: 1.7; color: #444; margin: 0 0 1.1rem; flex: 1; }
   .pa-card-link { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.3); padding-bottom: 1px; }
 
   /* PLAN B STEPS */

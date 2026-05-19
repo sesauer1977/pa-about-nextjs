@@ -239,7 +239,7 @@ export default function UeberUnsPage() {
               <div className="pa-hero-eyebrow">Über uns</div>
               <h1 className="pa-hero-h1">Über Perspektive Ausland und Sebastian Sauerborn</h1>
               <p className="pa-hero-subline">
-                Wir beraten zu Wegen, die wir selbst gegangen sind. Seit 2000 lebe ich im Ausland. Seitdem begleiten wir andere durch die gleiche Entscheidung.
+                Wir beraten zu Wegen, die wir selbst gegangen sind. Seit 2000 lebe ich im Ausland: Schweiz, England, USA, Malta, Irland. Seitdem begleiten wir andere durch die gleiche Entscheidung.
               </p>
               <div className="pa-hero-brand">Mehr Geld. Mehr Freiheit. Weniger Staat.</div>
               <div className="pa-hero-btns">
@@ -259,7 +259,7 @@ export default function UeberUnsPage() {
           <div className="pa-stats-grid">
             {[
               { n: "25", l: "Jahre im Ausland", s: "seit 2000" },
-              { n: "6", l: "Länder selbst gelebt", s: "Schweiz, England, USA, Malta, Irland, Schottland" },
+              { n: "5", l: "Länder selbst gelebt", s: "Schweiz, England, USA, Malta, Irland" },
               { n: "40+", l: "Jurisdiktionen analysiert", s: "für Mandanten in der Praxis umgesetzt" },
               { n: "144k", l: "Reichweite", s: "Podcast, YouTube, Community" },
               { n: "Mandanten", l: "aus allen Branchen", s: "Unternehmer, Freiberufler, Investoren" },
@@ -317,7 +317,7 @@ export default function UeberUnsPage() {
               </Fade>
               <Fade delay={1}>
                 <p className="pa-body-light">Ich bin Sebastian Sauerborn. Im Jahr 2000 habe ich Deutschland verlassen, mit Anfang zwanzig, neugierig und mit dem Gefühl, dass die Welt größer sein muss als der Schwarzwald. Ich war kein Flüchtling und kein Steuerflüchtling. Ich war jemand, der wissen wollte, wie man woanders lebt.</p>
-                <p className="pa-body-light">Seitdem habe ich in sechs Ländern gewohnt: in der Schweiz bei PwC, in London bei Allianz Insurance, später mit eigenem Beratungsgeschäft in der City, in Texas auf einer Ranch, auf Malta, in Irland, in Schottland. Jedes Land war eine eigene Entscheidung mit eigenen Konsequenzen. Jedes hat mir etwas beigebracht, das auf der nächsten Station nützlich wurde.</p>
+                <p className="pa-body-light">Seitdem habe ich in fünf Ländern gewohnt: in der Schweiz bei PwC, in London bei Allianz Insurance und später mit eigener Beratungs-Sozietät in der City, in Florida und Texas mit dem Aufbau der US-Praxis, dazu Phasen in Malta und Irland. Jedes Land war eine eigene Entscheidung mit eigenen Konsequenzen. Jedes hat mir etwas beigebracht, das auf der nächsten Station nützlich wurde.</p>
                 <p className="pa-body-light">Was meine Mandanten heute fragen, habe ich selbst durchgemacht. Welche Bank dich als Zugezogenen nimmt. Welches Finanzamt mit welcher Antwort zufrieden ist. Welche Aufenthaltsbewilligung in der Praxis funktioniert und welche nur auf dem Papier. Welche Steuerstruktur einen Auditor übersteht und welche kollabiert, sobald jemand genauer hinschaut.</p>
                 <p className="pa-body-light" style={{ marginBottom: "1.75rem" }}>Das ist der Unterschied zwischen Beratern, die einen Steuerrechts-Lehrgang gemacht haben, und Beratern, die selbst Auswanderer sind.</p>
                 <a href="https://www.sebsauerborn.com/about" className="pa-link-gold">Vollständige Biografie auf sebsauerborn.com →</a>
@@ -337,9 +337,11 @@ export default function UeberUnsPage() {
                 <div className="pa-divider" />
               </Fade>
               <Fade delay={1}>
-                <p className="pa-body-dark">Geboren 1977 in Freiburg im Breisgau, aufgewachsen im Hotzenwald nahe der Schweizer Grenze. Mein Vater war Sozialarbeiter, Unternehmer und Autor. Mit Anfang zwanzig zog ich nach Zürich und fing bei PwC als IT-Berater an. Viereinhalb Jahre. In der Schweiz lernte ich Präzision, Diskretion und eine andere Verwaltungskultur kennen.</p>
-                <p className="pa-body-dark">2003 ging ich nach London zu Allianz Insurance. Drei Jahre Konzern, dann der Schritt in die Unabhängigkeit. Ich gründete in der City of London mein eigenes Beratungsgeschäft, zunächst klassische Steuerberatung, später eine breitere Gruppe mit Filmproduktion, Podcast und internationaler Mandatierung. Über die Jahre wuchs daraus, was heute STM Corporate Group heißt.</p>
-                <p className="pa-body-dark" style={{ marginBottom: 0 }}>Mit dem London-Geschäft kamen die internationalen Mandate. Texas, Malta, Irland, Singapur, später Dubai, Panama, die Philippinen. Jede Auslandsstation für mich persönlich war zugleich eine Station für Mandantenarbeit. Heute lebe ich zwischen London und Austin. Familie, Mandanten, Veranstaltungen und Podcast verteilen sich über beide Seiten des Atlantiks.</p>
+                <p className="pa-body-dark">Geboren 1977 in Freiburg im Breisgau, aufgewachsen im Hotzenwald nahe der Schweizer Grenze. Mit Anfang zwanzig zog ich nach Zürich und fing bei PwC an. Viereinhalb Jahre. In der Schweiz lernte ich Präzision, Diskretion und eine andere Verwaltungskultur kennen.</p>
+                <p className="pa-body-dark">2003 ging ich nach London zu Allianz Insurance. Vier Jahre Konzern, parallel dazu der schrittweise Aufbau der eigenen Praxis. 2006 gründete ich mit ehemaligen PwC-Kollegen eine Beratungs-Sozietät in der City of London. Der Fokus war strategisch: deutschsprachige Unternehmer und vermögende Privatpersonen, die das damals außergewöhnlich attraktive britische Non-Dom-Regime nutzen wollten. Der Wegzug nach London war zu dieser Zeit für viele DACH-HNWIs die wirtschaftlich sinnvollste Entscheidung, und wir haben sie strukturiert.</p>
+                <p className="pa-body-dark">Aus der UK-Praxis wuchs die Erweiterung auf die USA. 2008 zog ich selbst nach Miami und baute von dort das US-Geschäft auf, von der LLC-Strukturierung über E-2-Investorenvisa bis zum US-Banking für Nicht-Residenten. Ich lebte von 2008 bis 2017 vollständig in den Vereinigten Staaten, mit Phasen in Irland (2015) und Malta (2016), die im selben Zeitraum eigene Standorte in der Beratungsstruktur wurden. Malta und Irland erweiterten das Spektrum um zwei weitere Non-Dom- und niedrigsteuerorientierte EU-Jurisdiktionen.</p>
+                <p className="pa-body-dark">2011 erwarb ich die Vaquera Ranch in Bastrop County, Texas. Eine private Entscheidung, die meine Verankerung im Land vertiefte: weg von der Großstadt, näher am Boden, eine eigene Adresse in Texas. 2017 verlagerte sich der Lebensmittelpunkt zurück nach London, mit Texas als zweitem Standbein.</p>
+                <p className="pa-body-dark" style={{ marginBottom: 0 }}>Heute teile ich meine Zeit zwischen Großbritannien und Texas. Familie, Mandanten und Veranstaltungen verteilen sich über beide Seiten des Atlantiks.</p>
               </Fade>
             </div>
           </div>
@@ -371,17 +373,16 @@ export default function UeberUnsPage() {
                 <div className="pa-timeline">
                   <div className="pa-timeline-title">Stationen</div>
                   {[
-                    ["2000","Zürich","PwC, IT-Consulting"],
+                    ["2000","Zürich","PwC"],
                     ["2003","London","Allianz Insurance"],
-                    ["2006","London","Eigene Kanzlei in der City"],
-                    ["2008","Miami","US-Expansion"],
+                    ["2006","London","Beratungs-Sozietät mit ex-PwC-Partnern, UK Non-Dom für DACH-Mandanten"],
+                    ["2007","London","Vollzeit-Wechsel in die eigene Praxis"],
+                    ["2008","Miami","Aufbau der US-Praxis"],
                     ["2011","Bastrop County, Texas","Vaquera Ranch"],
-                    ["2014","London","Aufbau der internationalen Mandatsstruktur"],
-                    ["2017","Malta","Mediterrane Basis, EU-Holdingstrukturen"],
-                    ["2019","Irland","Irish Foreign Births Register, EU-Anker"],
-                    ["2021","Schottland","Familienstandort, Bildungsentscheidung"],
-                    ["2023","Austin, TX","STM Corporate Group US-Hauptsitz"],
-                    ["heute","London und Austin","Perspektive Ausland"],
+                    ["2015","Dublin","Irland-Standort"],
+                    ["2016","Valletta","Malta-Standort"],
+                    ["2017","London","Verlagerung des Lebensmittelpunkts zurück nach UK"],
+                    ["heute","UK und Texas","Perspektive Ausland"],
                   ].map(([y,c,d]) => (
                     <div key={y} className="pa-timeline-row">
                       <span className="pa-timeline-year">{y}</span>
@@ -416,9 +417,9 @@ export default function UeberUnsPage() {
                 <div className="pa-year-label">2011</div>
               </Fade>
               <Fade delay={1}>
-                <p className="pa-body-dark">Im Frühjahr 2011 erwarb ich die Vaquera Ranch in Bastrop County, etwa siebzig Kilometer südöstlich von Austin. Ein altes Farmhaus, eine rote Scheune, ein großer Teich, ein Mix aus Weideland und Wald.</p>
-                <p className="pa-body-dark">Texas war das Kapitel, in dem ich die amerikanische Unternehmerkultur aus erster Hand erlebt habe. Niedrige Hürden für Gründung, ein Rechts- und Steuersystem, das auf Eigenverantwortung baut, und eine kulturelle Erwartung, dass man etwas selbst aufbaut, anstatt darauf zu warten, dass jemand anderes es bereitstellt.</p>
-                <p className="pa-body-dark" style={{ marginBottom: 0 }}>Aus der Ranch wurde der erste systematische Zugang zum US-Markt für unsere Mandanten. Die Erkenntnisse aus dem operativen Geschäft dort, von der LLC-Struktur über das US-Banking bis zum E-2 Investorenvisum, sind heute Standardbausteine in der Beratung von DACH-Unternehmern, die in die USA wollen. STM Corporate Group hat heute seinen Hauptsitz in Austin.</p>
+                <p className="pa-body-dark">Die Vaquera Ranch in Bastrop County, etwa siebzig Kilometer südöstlich von Austin, erwarb ich 2011. Ein altes Farmhaus, eine rote Scheune, ein großer Teich, ein Mix aus Weideland und Wald. Zu diesem Zeitpunkt arbeitete ich bereits seit 2008 von Miami aus mit US-Mandanten. Die Ranch war eine persönliche Entscheidung, die meine Verankerung im Land vertiefte: weg von der Großstadt, näher am Boden, eine eigene Adresse in Texas.</p>
+                <p className="pa-body-dark">Texas war und ist das Land der unkomplizierten Unternehmensgründung. Niedrige Hürden, ein Rechts- und Steuersystem, das auf Eigenverantwortung baut, und eine kulturelle Erwartung, dass man Dinge selbst aufbaut. Aus dem täglichen Leben dort kamen viele der praktischen Erkenntnisse, die heute Standardbausteine unserer US-Beratung sind: LLC-Strukturen, US-Banking für Nicht-Residenten, E-2-Investorenvisa, ITIN-basierter Kreditaufbau. Vieles davon haben wir in der eigenen Praxis vor der Mandantenarbeit getestet.</p>
+                <p className="pa-body-dark" style={{ marginBottom: 0 }}>Eine zweite Ranch ist in Planung. Wer Land kennt, weiß, dass es selten beim ersten Stück bleibt.</p>
               </Fade>
             </div>
           </div>
@@ -436,10 +437,10 @@ export default function UeberUnsPage() {
             <div className="pa-grid-2">
               <Fade delay={1}>
                 <p className="pa-body-light">In der täglichen Arbeit fiel mir immer das Gleiche auf. Die Mandanten kamen nicht mit den Fragen, die sie hätten stellen sollen. Sie kamen mit den Fragen, von denen sie wussten, dass es sie gibt. Was sie nicht wussten, fehlte komplett.</p>
-                <p className="pa-body-light" style={{ marginBottom: 0 }}>Daraus entstand der Wunsch, das verfügbare Wissen außerhalb der Beratungsbeziehung breit zugänglich zu machen. Zuerst als Podcast, dann auf YouTube, dann mit Community und Live-Veranstaltungen. Daniel Taborek ist seit Anfang an der zweite Host. Wir decken zusammen das gesamte Spektrum ab, von der ersten Frage bis zur konkreten Umsetzung.</p>
+                <p className="pa-body-light" style={{ marginBottom: 0 }}>Daraus entstand der Wunsch, das verfügbare Wissen auch außerhalb der direkten Beratungsbeziehung zugänglich zu machen. Der Perspektive-Ausland-Podcast startete als gemeinsames Projekt mit Daniel Taborek, mit dem ich seitdem zusammen das gesamte Spektrum dieser Themen behandle, von der ersten Frage bis zur konkreten Umsetzung. Dazu kamen YouTube-Kanal, Community und regelmäßige Live-Veranstaltungen.</p>
               </Fade>
               <Fade delay={2}>
-                <p className="pa-body-light">Heute hat Perspektive Ausland eine substantielle Reichweite im deutschsprachigen Raum. Podcast und YouTube zusammen erreichen sechsstellige Hörer- und Zuschauerzahlen. Die Community trifft sich online und auf jährlichen Mitgliederveranstaltungen in London und anderen Standorten. Aus dem Hörerkreis kommen viele unserer Mandanten.</p>
+                <p className="pa-body-light">Heute hat Perspektive Ausland eine substantielle Reichweite im deutschsprachigen Raum. Podcast und YouTube zusammen erreichen sechsstellige Hörer- und Zuschauerzahlen. Die Community trifft sich online und auf jährlichen Mitgliederveranstaltungen.</p>
                 <div style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap", marginTop: "0.5rem" }}>
                   <a href="https://www.perspektiveausland.com/podcast" className="pa-link-gold">Zum Podcast</a>
                   <a href="https://www.youtube.com/c/PerspektiveAuslandPodcast" className="pa-link-gold">YouTube-Kanal</a>

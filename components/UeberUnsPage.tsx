@@ -21,27 +21,18 @@ const IMAGES = {
 
 const RESPONSIVE_CSS = `
   :root { --gold: #C9A84C; --navy: #0B1C2D; --ivory: #FAF7F2; }
-  * { box-sizing: border-box; }
-  body { margin: 0; padding: 0; background: var(--ivory); }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { overflow-x: hidden; max-width: 100%; }
+  body { margin: 0; padding: 0; background: var(--ivory); overflow-x: hidden; max-width: 100%; }
 
-  /* NAV */
-  .pa-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 1.25rem; height: 60px; display: flex; align-items: center; justify-content: space-between; transition: background 0.4s; }
-  .pa-nav-links { display: flex; gap: 1.5rem; align-items: center; }
-  .pa-nav-link { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(250,247,242,0.8); text-decoration: none; }
-  .pa-nav-link:hover { color: var(--gold); }
-  .pa-nav-cta { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 8px 16px; text-decoration: none; white-space: nowrap; }
-  .pa-nav-cta:hover { background: #b8943d; }
-  @media (max-width: 767px) {
-    .pa-nav-links { display: none; }
-    .pa-nav-cta { display: none; }
-  }
+
 
   /* HERO */
-  .pa-hero { position: relative; height: 100vh; min-height: 560px; overflow: hidden; display: flex; align-items: center; }
+  .pa-hero { position: relative; height: 100vh; min-height: 560px; overflow: hidden; display: flex; align-items: center; width: 100%; }
   .pa-hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; will-change: transform; }
   .pa-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(11,28,45,0.9) 50%, rgba(11,28,45,0.35) 100%); }
-  .pa-hero-content { position: relative; z-index: 2; width: 100%; max-width: 1280px; margin: 0 auto; padding: 80px 1.5rem 2rem; }
-  .pa-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 8vw, 5.5rem); font-weight: 700; color: var(--ivory); line-height: 1.05; margin: 0 0 1.25rem; }
+  .pa-hero-content { position: relative; z-index: 2; width: 100%; max-width: 1280px; margin: 0 auto; padding: 2rem 1.5rem; }
+  .pa-hero-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 8vw, 5.5rem); font-weight: 700; color: var(--ivory); line-height: 1.05; margin: 0 0 1.25rem; display: block; width: 100%; }
   .pa-hero p { font-family: 'Crimson Pro', serif; font-size: clamp(1rem, 2.5vw, 1.3rem); color: rgba(250,247,242,0.85); line-height: 1.7; margin: 0 0 2rem; max-width: 520px; }
   .pa-hero-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; }
   .pa-btn-primary { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 13px 24px; text-decoration: none; display: inline-block; }
@@ -53,8 +44,8 @@ const RESPONSIVE_CSS = `
   .pa-scroll-line { width: 1px; height: 36px; background: linear-gradient(to bottom, rgba(201,168,76,0.8), transparent); }
 
   /* STATS */
-  .pa-stats { background: var(--navy); border-top: 1px solid rgba(201,168,76,0.2); }
-  .pa-stats-grid { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); }
+  .pa-stats { background: var(--navy); border-top: 1px solid rgba(201,168,76,0.2); width: 100%; overflow-x: hidden; }
+  .pa-stats-grid { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); width: 100%; }
   .pa-stat { text-align: center; padding: 1.5rem 0.75rem; border-right: 1px solid rgba(201,168,76,0.1); }
   .pa-stat-num { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 0.4rem; }
   .pa-stat-label { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ivory); }
@@ -67,25 +58,25 @@ const RESPONSIVE_CSS = `
   .pa-chapter-title { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase; opacity: 0.8; }
 
   /* SECTION PADDING */
-  .pa-section { padding: 5rem 1.5rem; }
+  .pa-section { padding: 5rem 1.5rem; width: 100%; }
   .pa-section-dark { background: var(--navy); }
   .pa-section-light { background: var(--ivory); }
   .pa-inner { max-width: 1280px; margin: 0 auto; }
 
   /* TWO-COL GRID — stacks on mobile */
-  .pa-grid-2 { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
+  .pa-grid-2 { display: grid; grid-template-columns: 1fr; gap: 2.5rem; width: 100%; }
   @media (min-width: 768px) {
     .pa-grid-2 { grid-template-columns: 1fr 1fr; gap: 4rem; }
   }
-  .pa-grid-2-wide { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
+  .pa-grid-2-wide { display: grid; grid-template-columns: 1fr; gap: 2.5rem; width: 100%; }
   @media (min-width: 768px) {
     .pa-grid-2-wide { grid-template-columns: 1fr 1.5fr; gap: 4rem; }
   }
-  .pa-grid-2-wide-r { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
+  .pa-grid-2-wide-r { display: grid; grid-template-columns: 1fr; gap: 2.5rem; width: 100%; }
   @media (min-width: 768px) {
     .pa-grid-2-wide-r { grid-template-columns: 1.5fr 1fr; gap: 4rem; }
   }
-  .pa-grid-portrait { display: grid; grid-template-columns: 1fr; gap: 2.5rem; align-items: center; }
+  .pa-grid-portrait { display: grid; grid-template-columns: 1fr; gap: 2.5rem; align-items: center; width: 100%; }
   @media (min-width: 768px) {
     .pa-grid-portrait { grid-template-columns: 1fr 1.2fr; gap: 4rem; }
   }
@@ -107,8 +98,8 @@ const RESPONSIVE_CSS = `
   .pa-year-label { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
 
   /* LANDSCAPE IMAGES */
-  .pa-landscape { position: relative; overflow: hidden; }
-  .pa-landscape-bg { height: 380px; background-size: cover; background-position: center; background-attachment: scroll; }
+  .pa-landscape { position: relative; overflow: hidden; width: 100%; }
+  .pa-landscape-bg { height: 380px; background-size: cover; background-position: center; background-attachment: scroll; position: relative; width: 100%; }
   @media (min-width: 768px) { .pa-landscape-bg { height: 520px; background-attachment: fixed; } }
   .pa-landscape-overlay-b { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(11,28,45,0.3) 0%, rgba(11,28,45,0.75) 100%); }
   .pa-landscape-overlay-r { position: absolute; inset: 0; background: linear-gradient(to right, rgba(11,28,45,0.85) 40%, rgba(11,28,45,0.3) 100%); }
@@ -120,8 +111,8 @@ const RESPONSIVE_CSS = `
   .pa-landscape-h { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.5rem, 4vw, 3rem); font-weight: 700; color: var(--ivory); line-height: 1.1; max-width: 560px; margin: 0; }
 
   /* PORTRAIT */
-  .pa-portrait-wrap { position: relative; }
-  .pa-portrait-wrap img { width: 100%; display: block; filter: brightness(0.95) contrast(1.05); }
+  .pa-portrait-wrap { position: relative; width: 100%; overflow: hidden; }
+  .pa-portrait-wrap img { width: 100%; max-width: 100%; height: auto; display: block; filter: brightness(0.95) contrast(1.05); }
   .pa-portrait-fade { position: absolute; bottom: -1px; left: 0; right: 0; height: 100px; background: linear-gradient(to top, var(--navy), transparent); }
   .pa-portrait-credit { position: absolute; bottom: 1.25rem; left: 1.25rem; font-family: 'Montserrat', sans-serif; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(201,168,76,0.7); }
 
@@ -136,7 +127,7 @@ const RESPONSIVE_CSS = `
   .pa-timeline-desc { font-family: 'Crimson Pro', serif; font-size: 0.9rem; color: rgba(250,247,242,0.55); font-style: italic; }
 
   /* EXPERTISE CARDS */
-  .pa-cards { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+  .pa-cards { display: grid; grid-template-columns: 1fr; gap: 1.25rem; width: 100%; }
   @media (min-width: 640px) { .pa-cards { grid-template-columns: 1fr 1fr; } }
   @media (min-width: 1024px) { .pa-cards { grid-template-columns: repeat(3, 1fr); } }
   .pa-card { background: #fff; border: 1px solid rgba(11,28,45,0.08); padding: 1.75rem; transition: box-shadow 0.3s, transform 0.3s; }
@@ -170,8 +161,8 @@ const RESPONSIVE_CSS = `
   .pa-cta-btns { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
 
   /* FOOTER */
-  .pa-footer { background: #060E17; padding: 3.5rem 1.5rem 2rem; border-top: 1px solid rgba(201,168,76,0.15); }
-  .pa-footer-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 2.5rem; }
+  .pa-footer { background: #060E17; padding: 3.5rem 1.5rem 2rem; border-top: 1px solid rgba(201,168,76,0.15); width: 100%; overflow-x: hidden; display: none; }
+  .pa-footer-grid { max-width: 1280px; margin: 0 auto 2.5rem; display: grid; grid-template-columns: 1fr; gap: 2rem; width: 100%; }
   @media (min-width: 640px) { .pa-footer-grid { grid-template-columns: 1fr 1fr; } }
   @media (min-width: 1024px) { .pa-footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; } }
   .pa-footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 700; color: var(--ivory); margin-bottom: 0.875rem; }
@@ -235,20 +226,7 @@ export default function UeberUnsPage() {
       <style dangerouslySetInnerHTML={{ __html: RESPONSIVE_CSS }} />
       <div style={{ background: "#FAF7F2", fontFamily: "'Crimson Pro', serif", overflowX: "hidden" }}>
 
-        {/* NAV */}
-        <nav className="pa-nav" style={{ background: navBg, borderBottom: navBorder, backdropFilter: scrollY > 60 ? "blur(12px)" : "none" }}>
-          <a href="https://www.perspektiveausland.com" style={{ textDecoration: "none" }}>
-            <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "19px", fontWeight: 700, color: "#FAF7F2", letterSpacing: "0.02em" }}>
-              Perspektive <span style={{ color: "#C9A84C" }}>Ausland</span>
-            </span>
-          </a>
-          <div className="pa-nav-links">
-            {[["Podcast","https://www.perspektiveausland.com/podcast"],["Themen","https://www.perspektiveausland.com/themen"],["Der Club","https://www.perspektiveausland.com/der-club"],["Lösungen","https://www.perspektiveausland.com/loesungen"]].map(([l,h]) => (
-              <a key={l} href={h} className="pa-nav-link">{l}</a>
-            ))}
-            <a href="https://www.perspektiveausland.com/termin" className="pa-nav-cta">Termin buchen</a>
-          </div>
-        </nav>
+
 
         {/* HERO */}
         <section className="pa-hero">
@@ -257,7 +235,7 @@ export default function UeberUnsPage() {
           <div className="pa-hero-content">
             <div style={{ maxWidth: "600px" }}>
               <div style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "10px", fontWeight: 700, letterSpacing: "0.25em", textTransform: "uppercase", color: "#C9A84C", marginBottom: "1.25rem" }}>Über uns</div>
-              <h1 className="pa-hero" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.4rem, 8vw, 5.5rem)", fontWeight: 700, color: "#FAF7F2", lineHeight: 1.05, margin: "0 0 1.25rem" }}>
+              <h1 className="pa-hero-headline">
                 Mehr Geld.<br />Mehr Freiheit.<br /><em style={{ color: "#C9A84C" }}>Weniger Staat.</em>
               </h1>
               <p style={{ fontFamily: "'Crimson Pro', serif", fontSize: "clamp(1rem, 2.5vw, 1.3rem)", color: "rgba(250,247,242,0.85)", lineHeight: 1.7, margin: "0 0 2rem", maxWidth: "520px" }}>

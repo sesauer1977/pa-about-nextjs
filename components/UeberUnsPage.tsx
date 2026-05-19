@@ -31,7 +31,7 @@ const RESPONSIVE_CSS = `
   .pa-header { background: var(--navy); padding: 0 1.5rem; height: 64px; display: flex; align-items: center; border-bottom: 1px solid rgba(201,168,76,0.25); width: 100%; }
   .pa-header-inner { max-width: 1280px; margin: 0 auto; width: 100%; display: flex; align-items: center; gap: 0; }
   .pa-header-logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
-  .pa-header-logo img { height: 36px; width: auto; display: block; }
+  .pa-header-logo img { height: 36px; width: auto; display: block; filter: brightness(0) invert(1); }
   .pa-header-divider { width: 1px; height: 28px; background: rgba(201,168,76,0.5); margin: 0 1.25rem; flex-shrink: 0; }
   .pa-header-label { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); white-space: nowrap; }
 

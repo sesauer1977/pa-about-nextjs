@@ -345,6 +345,19 @@ export default function UeberUnsPage() {
           </div>
         </section>
 
+        {/* LONDON IMAGE */}
+        <div className="pa-landscape">
+          <div className="pa-landscape-bg" style={{ backgroundImage: `url(${IMAGES.london})` }}>
+            <div className="pa-landscape-overlay-r" />
+            <div className="pa-landscape-caption-c">
+              <div style={{ maxWidth: "1280px", width: "100%", margin: "0 auto" }}>
+                <div className="pa-coord-divider">51°30&apos;N 0°7&apos;W · City of London, England</div>
+                <h3 className="pa-landscape-h">Die Stadt, die aus mir einen Unternehmer machte.</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* 04 — STATIONEN (TIMELINE) */}
         <section className="pa-section pa-section-dark">
           <div className="pa-inner">

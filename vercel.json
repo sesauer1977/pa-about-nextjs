@@ -2,5 +2,17 @@
   "buildCommand": "pnpm build",
   "outputDirectory": "out",
   "installCommand": "pnpm install",
-  "framework": null
+  "framework": null,
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/ueber-pa",
+      "permanent": true
+    },
+    {
+      "source": "/((?!ueber-pa).*)",
+      "destination": "/ueber-pa",
+      "permanent": true
+    }
+  ]
 }

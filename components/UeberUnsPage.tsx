@@ -267,7 +267,7 @@ export default function UeberUnsPage() {
               { n: "25", l: "Jahre im Ausland", s: "seit 2000" },
               { n: "5", l: "Länder selbst gelebt", s: "Schweiz, England, USA, Malta, Irland" },
               { n: "40+", l: "Jurisdiktionen analysiert", s: "für Mandanten in der Praxis umgesetzt" },
-              { n: "144k", l: "Reichweite", s: "Podcast, YouTube, Community" },
+              { n: "200k+", l: "Reichweite", s: "YouTube, Newsletter, TikTok, Instagram" },
               { n: "Mandanten", l: "aus allen Branchen", s: "Unternehmer, Freiberufler, Investoren" },
             ].map((s, i) => (
               <div key={i} className="pa-stat">
@@ -323,7 +323,7 @@ export default function UeberUnsPage() {
               </Fade>
               <Fade delay={1}>
                 <p className="pa-body-light">Ich bin Sebastian Sauerborn. Im Jahr 2000 habe ich Deutschland verlassen, mit Anfang zwanzig, neugierig und mit dem Gefühl, dass die Welt größer sein muss als der Schwarzwald. Ich war kein Flüchtling und kein Steuerflüchtling. Ich war jemand, der wissen wollte, wie man woanders lebt.</p>
-                <p className="pa-body-light">Seitdem habe ich in fünf Ländern gewohnt: in der Schweiz bei PwC, in London bei Allianz Insurance und später mit eigener Beratungs-Sozietät in der City, in Florida und Texas mit dem Aufbau der US-Praxis, dazu Phasen in Malta und Irland. Jedes Land war eine eigene Entscheidung mit eigenen Konsequenzen. Jedes hat mir etwas beigebracht, das auf der nächsten Station nützlich wurde.</p>
+                <p className="pa-body-light">Seitdem habe ich in fünf Ländern gewohnt: in der Schweiz, in England, in den USA, auf Malta und in Irland. Aus der Schweiz kam die professionelle Grundausbildung bei PwC. Aus London der Schritt zur eigenen Beratungs-Sozietät in der City. Aus Florida und Texas der Aufbau der US-Praxis. Malta und Irland kamen als zusätzliche operative Standorte dazu. Jedes Land war eine eigene Entscheidung mit eigenen Konsequenzen. Jedes hat mir etwas beigebracht, das auf der nächsten Station nützlich wurde.</p>
                 <p className="pa-body-light">Was meine Mandanten heute fragen, habe ich selbst durchgemacht. Welche Bank dich als Zugezogenen nimmt. Welches Finanzamt mit welcher Antwort zufrieden ist. Welche Aufenthaltsbewilligung in der Praxis funktioniert und welche nur auf dem Papier. Welche Steuerstruktur einen Auditor übersteht und welche kollabiert, sobald jemand genauer hinschaut.</p>
                 <p className="pa-body-light" style={{ marginBottom: "1.75rem" }}>Das ist der Unterschied zwischen Beratern, die einen Steuerrechts-Lehrgang gemacht haben, und Beratern, die selbst Auswanderer sind.</p>
                 <a href="https://www.sebsauerborn.com/about" className="pa-link-gold">Vollständige Biografie auf sebsauerborn.com →</a>
@@ -373,7 +373,8 @@ export default function UeberUnsPage() {
               <Fade>
                 <div className="pa-chapter-label"><span className="pa-chapter-num">04</span><div className="pa-chapter-line" /><span className="pa-chapter-title">Stationen</span></div>
                 <h2 className="pa-h2-light">25 Jahre. <em className="pa-gold">Fünf Länder. Eine Praxis.</em></h2>
-                <blockquote style={{ borderLeft: "3px solid rgba(201,168,76,0.5)", paddingLeft: "1.5rem", fontFamily: "'Cormorant Garamond', serif", fontSize: "1.4rem", fontStyle: "italic", color: "rgba(250,247,242,0.85)", lineHeight: 1.55, margin: "0 0 1.5rem" }}>
+                <p className="pa-body-light">Jede Station war eine eigene Entscheidung mit eigenen Konsequenzen. Was auf dem Papier wie eine Biografie aussieht, ist in der Praxis ein Archiv aus Erfahrungen, die direkt in die Mandatierung einfließen.</p>
+                <blockquote style={{ borderLeft: "3px solid rgba(201,168,76,0.5)", paddingLeft: "1.5rem", fontFamily: "'Cormorant Garamond', serif", fontSize: "1.3rem", fontStyle: "italic", color: "rgba(250,247,242,0.8)", lineHeight: 1.55, margin: "0" }}>
                   "Jedes Land war eine eigene Entscheidung mit eigenen Konsequenzen. Jedes hat mir etwas beigebracht, das auf der nächsten Station nützlich wurde."
                 </blockquote>
               </Fade>
@@ -462,7 +463,7 @@ export default function UeberUnsPage() {
         {/* 07 — DAS TEAM */}
         <section className="pa-section pa-section-light">
           <div className="pa-inner">
-            <div style={{ marginBottom: "2rem" }}>
+            <div style={{ marginBottom: "1.5rem" }}>
               <div className="pa-coord-divider" style={{ color: "rgba(201,168,76,0.75)" }}>Sechs Köpfe. Eine Praxis.</div>
             </div>
             <div className="pa-grid-portrait">

@@ -27,6 +27,14 @@ const RESPONSIVE_CSS = `
 
 
 
+  /* HEADER */
+  .pa-header { background: var(--navy); padding: 0 1.5rem; height: 64px; display: flex; align-items: center; border-bottom: 1px solid rgba(201,168,76,0.25); width: 100%; }
+  .pa-header-inner { max-width: 1280px; margin: 0 auto; width: 100%; display: flex; align-items: center; gap: 0; }
+  .pa-header-logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
+  .pa-header-logo img { height: 36px; width: auto; display: block; }
+  .pa-header-divider { width: 1px; height: 28px; background: rgba(201,168,76,0.5); margin: 0 1.25rem; flex-shrink: 0; }
+  .pa-header-label { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); white-space: nowrap; }
+
   /* HERO */
   .pa-hero { position: relative; height: 100vh; min-height: 560px; overflow: hidden; display: flex; align-items: center; width: 100%; }
   .pa-hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; will-change: transform; }
@@ -227,6 +235,20 @@ export default function UeberUnsPage() {
       <div style={{ background: "#FAF7F2", fontFamily: "'Crimson Pro', serif", overflowX: "hidden" }}>
 
 
+
+        {/* HEADER */}
+        <header className="pa-header">
+          <div className="pa-header-inner">
+            <a href="https://www.perspektiveausland.com" className="pa-header-logo">
+              <img
+                src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663489425504/yXZrDfTMyVGljsjL.png"
+                alt="Perspektive Ausland"
+              />
+            </a>
+            <div className="pa-header-divider" />
+            <span className="pa-header-label">Über uns</span>
+          </div>
+        </header>
 
         {/* HERO */}
         <section className="pa-hero">

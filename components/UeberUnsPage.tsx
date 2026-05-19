@@ -8,7 +8,7 @@
  * Design: Marineblau #0B1C2D | Elfenbein #FAF7F2 | Mattgold #C9A84C
  */
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 const IMAGES = {
   hero: "https://d2xsxph8kpxj0f.cloudfront.net/310519663489425504/SEVjg9oq8Re7WUYduAWprk/hero_world_map_dark-59qpgCDFCoYYWebeA8gpNW.webp",
@@ -173,46 +173,11 @@ const RESPONSIVE_CSS = `
   .pa-footer-legal a { font-family: 'Montserrat', sans-serif; font-size: 10px; color: rgba(250,247,242,0.3); text-decoration: none; transition: color 0.2s; }
   .pa-footer-legal a:hover { color: var(--gold); }
 
-  /* FADE ANIMATION */
-  .pa-fade { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease-out, transform 0.5s ease-out; }
-  .pa-fade.visible { opacity: 1; transform: translateY(0); }
-  .pa-fade-d1 { transition-delay: 80ms; }
-  .pa-fade-d2 { transition-delay: 160ms; }
-  /* iOS Safari fallback: if JS animation never fires, still show content */
-  @media (prefers-reduced-motion: reduce) {
-    .pa-fade { opacity: 1; transform: none; }
-  }
+
 `;
 
-function useInView() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [inView, setInView] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    // Fallback: if already in viewport on mount, show immediately
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight) {
-      setInView(true);
-      return;
-    }
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setInView(true); },
-      { threshold: 0, rootMargin: "0px 0px -40px 0px" }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-  return { ref, inView };
-}
-
-function Fade({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
-  const { ref, inView } = useInView();
-  return (
-    <div ref={ref} className={`pa-fade${inView ? " visible" : ""}${delay === 1 ? " pa-fade-d1" : delay === 2 ? " pa-fade-d2" : ""} ${className}`}>
-      {children}
-    </div>
-  );
+function Fade({ children, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
+  return <div className={className}>{children}</div>;
 }
 
 export default function UeberUnsPage() {
@@ -221,15 +186,6 @@ export default function UeberUnsPage() {
     const onScroll = () => setScrollY(window.scrollY);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  // Hard safety net: after 800ms force all fade elements visible
-  // Prevents blank content on iOS Safari if IntersectionObserver misfires
-  useEffect(() => {
-    const t = setTimeout(() => {
-      document.querySelectorAll(".pa-fade").forEach(el => el.classList.add("visible"));
-    }, 800);
-    return () => clearTimeout(t);
   }, []);
 
   const heroParallax = scrollY * 0.3;

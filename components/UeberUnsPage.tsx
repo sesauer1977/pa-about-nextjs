@@ -236,15 +236,21 @@ export default function UeberUnsPage() {
           <div className="pa-hero-overlay" />
           <div className="pa-hero-content">
             <div style={{ maxWidth: "640px" }}>
-              <div className="pa-hero-eyebrow">Über uns</div>
-              <h1 className="pa-hero-h1">Über Perspektive Ausland und Sebastian Sauerborn</h1>
+              <nav aria-label="Breadcrumb" style={{ marginBottom: "1rem" }}>
+                <ol style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                  <li><a href="https://www.perspektiveausland.com" style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "10px", fontWeight: 600, letterSpacing: "0.1em", color: "rgba(250,247,242,0.5)", textDecoration: "none", textTransform: "uppercase" }}>Home</a></li>
+                  <li style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "10px", color: "rgba(250,247,242,0.35)" }} aria-hidden="true">›</li>
+                  <li style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "10px", fontWeight: 600, letterSpacing: "0.1em", color: "rgba(201,168,76,0.8)", textTransform: "uppercase" }} aria-current="page">Über uns</li>
+                </ol>
+              </nav>
+              <h1 className="pa-hero-h1">Über Perspektive Ausland: die Plattform für Auswanderer</h1>
               <p className="pa-hero-subline">
                 Wir beraten zu Wegen, die wir selbst gegangen sind. Seit 2000 lebe ich im Ausland: Schweiz, England, USA, Malta, Irland. Seitdem begleiten wir andere durch die gleiche Entscheidung.
               </p>
               <div className="pa-hero-brand">Mehr Geld. Mehr Freiheit. Weniger Staat.</div>
               <div className="pa-hero-btns">
                 <a href="https://mandatierung.perspektiveausland.com/" className="pa-btn-primary">Erstgespräch buchen</a>
-                <a href="https://www.perspektiveausland.com/podcast" className="pa-btn-outline">Podcast hören</a>
+                <a href="https://www.youtube.com/c/PerspektiveAuslandPodcast" className="pa-btn-outline">YouTube-Kanal</a>
               </div>
             </div>
           </div>
@@ -287,7 +293,7 @@ export default function UeberUnsPage() {
               <Fade delay={1}>
                 <div className="pa-chapter-label"><span className="pa-chapter-num">01</span><div className="pa-chapter-line" /><span className="pa-chapter-title">Die Plattform</span></div>
                 <h2 className="pa-h2-dark">Andere reden. <em className="pa-gold">Wir setzen es um.</em></h2>
-                <p className="pa-body-dark">Perspektive Ausland ist die deutschsprachige Plattform für alle, die ihren Wohnsitz, ihre Strukturen oder ihre Optionen ins Ausland verlagern wollen. Im <a href="https://www.perspektiveausland.com/podcast" className="pa-link-dark">Podcast</a>, auf <a href="https://www.youtube.com/c/PerspektiveAuslandPodcast" className="pa-link-dark">YouTube</a>, in der <a href="https://nhc.perspektiveausland.com/club" className="pa-link-dark">Community</a> und in der konkreten Mandatierung.</p>
+                <p className="pa-body-dark">Perspektive Ausland ist die deutschsprachige Plattform für alle, die ihren Wohnsitz, ihre Strukturen oder ihre Optionen ins Ausland verlagern wollen. Auf <a href="https://www.youtube.com/c/PerspektiveAuslandPodcast" className="pa-link-dark">YouTube</a>, in der <a href="https://nhc.perspektiveausland.com/club" className="pa-link-dark">Community</a> und in der konkreten Mandatierung.</p>
                 <p className="pa-body-dark">Das Spektrum reicht von der ersten Idee bis zur vollständigen Umsetzung. Länderauswahl. Steuerstrukturen. Aufenthaltstitel. Bankkonten. Zweitpässe. Vermögenssicherung. Alles davon ist unser Alltag, kein Theorie-Kapitel aus einem Buch.</p>
                 <p className="pa-body-dark" style={{ marginBottom: "1.75rem" }}>Wer auswandern oder einen Plan B aufbauen will, hat Fragen, die im Heimatland nie eine Rolle gespielt haben. Die Plattform beantwortet sie. Die Mandatierung setzt sie um.</p>
               </Fade>
@@ -366,8 +372,10 @@ export default function UeberUnsPage() {
             <div className="pa-grid-2-wide-r">
               <Fade>
                 <div className="pa-chapter-label"><span className="pa-chapter-num">04</span><div className="pa-chapter-line" /><span className="pa-chapter-title">Stationen</span></div>
-                <h2 className="pa-h2-light">25 Jahre. <em className="pa-gold">Sechs Länder. Eine Praxis.</em></h2>
-                <p className="pa-body-light">Jede Station war eine eigene Entscheidung mit eigenen Konsequenzen. Was auf dem Papier wie eine Biografie aussieht, ist in der Praxis ein Archiv aus Erfahrungen, die direkt in die Mandatierung einfließen.</p>
+                <h2 className="pa-h2-light">25 Jahre. <em className="pa-gold">Fünf Länder. Eine Praxis.</em></h2>
+                <blockquote style={{ borderLeft: "3px solid rgba(201,168,76,0.5)", paddingLeft: "1.5rem", fontFamily: "'Cormorant Garamond', serif", fontSize: "1.4rem", fontStyle: "italic", color: "rgba(250,247,242,0.85)", lineHeight: 1.55, margin: "0 0 1.5rem" }}>
+                  "Jedes Land war eine eigene Entscheidung mit eigenen Konsequenzen. Jedes hat mir etwas beigebracht, das auf der nächsten Station nützlich wurde."
+                </blockquote>
               </Fade>
               <Fade delay={1}>
                 <div className="pa-timeline">
@@ -417,7 +425,7 @@ export default function UeberUnsPage() {
                 <div className="pa-year-label">2011</div>
               </Fade>
               <Fade delay={1}>
-                <p className="pa-body-dark">Die Vaquera Ranch in Bastrop County, etwa siebzig Kilometer südöstlich von Austin, erwarb ich 2011. Ein altes Farmhaus, eine rote Scheune, ein großer Teich, ein Mix aus Weideland und Wald. Zu diesem Zeitpunkt arbeitete ich bereits seit 2008 von Miami aus mit US-Mandanten. Die Ranch war eine persönliche Entscheidung, die meine Verankerung im Land vertiefte: weg von der Großstadt, näher am Boden, eine eigene Adresse in Texas.</p>
+                <p className="pa-body-dark">Die Vaquera Ranch in Bastrop County, etwa 30 Meilen östlich von Austin, erwarb ich 2011. Bastrop County ist heute der Standort, an dem SpaceX seine Starbase-Produktion ausbaut. Ein altes Farmhaus, eine rote Scheune, ein großer Teich, ein Mix aus Weideland und Wald. Zu diesem Zeitpunkt arbeitete ich bereits seit 2008 von Miami aus mit US-Mandanten. Die Ranch war eine persönliche Entscheidung, die meine Verankerung im Land vertiefte: weg von der Großstadt, näher am Boden, eine eigene Adresse in Texas.</p>
                 <p className="pa-body-dark">Texas war und ist das Land der unkomplizierten Unternehmensgründung. Niedrige Hürden, ein Rechts- und Steuersystem, das auf Eigenverantwortung baut, und eine kulturelle Erwartung, dass man Dinge selbst aufbaut. Aus dem täglichen Leben dort kamen viele der praktischen Erkenntnisse, die heute Standardbausteine unserer US-Beratung sind: LLC-Strukturen, US-Banking für Nicht-Residenten, E-2-Investorenvisa, ITIN-basierter Kreditaufbau. Vieles davon haben wir in der eigenen Praxis vor der Mandantenarbeit getestet.</p>
                 <p className="pa-body-dark" style={{ marginBottom: 0 }}>Eine zweite Ranch ist in Planung. Wer Land kennt, weiß, dass es selten beim ersten Stück bleibt.</p>
               </Fade>
@@ -440,11 +448,11 @@ export default function UeberUnsPage() {
                 <p className="pa-body-light" style={{ marginBottom: 0 }}>Daraus entstand der Wunsch, das verfügbare Wissen auch außerhalb der direkten Beratungsbeziehung zugänglich zu machen. Der Perspektive-Ausland-Podcast startete als gemeinsames Projekt mit Daniel Taborek, mit dem ich seitdem zusammen das gesamte Spektrum dieser Themen behandle, von der ersten Frage bis zur konkreten Umsetzung. Dazu kamen YouTube-Kanal, Community und regelmäßige Live-Veranstaltungen.</p>
               </Fade>
               <Fade delay={2}>
-                <p className="pa-body-light">Heute hat Perspektive Ausland eine substantielle Reichweite im deutschsprachigen Raum. Podcast und YouTube zusammen erreichen sechsstellige Hörer- und Zuschauerzahlen. Die Community trifft sich online und auf jährlichen Mitgliederveranstaltungen.</p>
+                <p className="pa-body-light">Heute hat Perspektive Ausland eine Reichweite von über 200.000 Followern und Abonnenten im deutschsprachigen Raum, verteilt über YouTube, Newsletter, TikTok und Instagram. Aus dieser Reichweite haben sich zwei strukturierte Ebenen entwickelt: der <strong>New Horizons Club</strong> als kostenpflichtige Jahresmitgliedschaft mit monatlichem Newsletter, Live-Webinaren, Call-In Days, einem privaten Mitglieder-Forum und einem jährlichen Mitglieder-Event in London. Daneben unser <strong>Members Club</strong> als interne, geschlossene Community ausschließlich für aktive Mandanten, in der die operative Begleitung über die laufende Beratung hinaus stattfindet.</p>
                 <div style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap", marginTop: "0.5rem" }}>
-                  <a href="https://www.perspektiveausland.com/podcast" className="pa-link-gold">Zum Podcast</a>
                   <a href="https://www.youtube.com/c/PerspektiveAuslandPodcast" className="pa-link-gold">YouTube-Kanal</a>
-                  <a href="https://nhc.perspektiveausland.com/club" className="pa-link-gold">Der Club</a>
+                  <a href="https://verteiler.perspektiveausland.com/" className="pa-link-gold">Newsletter</a>
+                  <a href="https://nhc.perspektiveausland.com/club" className="pa-link-gold">New Horizons Club</a>
                 </div>
               </Fade>
             </div>
@@ -556,7 +564,7 @@ export default function UeberUnsPage() {
                 <a href="https://mandatierung.perspektiveausland.com/" className="pa-btn-primary">Erstgespräch buchen</a>
               </div>
               <div className="pa-cta-secondary">
-                <a href="https://www.perspektiveausland.com/podcast">Podcast hören</a>
+                <a href="https://www.youtube.com/c/PerspektiveAuslandPodcast">YouTube-Kanal</a>
                 <a href="https://nhc.perspektiveausland.com/club">Der Club</a>
                 <a href="https://verteiler.perspektiveausland.com/">Newsletter</a>
               </div>
@@ -579,9 +587,10 @@ export default function UeberUnsPage() {
                 ["Vermögenssicherung","https://themen.perspektiveausland.com/themen/vermoegenssicherung"],
                 ["Perpetual Traveling","https://themen.perspektiveausland.com/themen/perpetual-traveling"],
                 ["Krypto","https://themen.perspektiveausland.com/themen/krypto"],
+                ["Überwachungsstaat EU","https://themen.perspektiveausland.com/themen/ueberwachungsstaat-eu"],
+                ["Schutz vor Krieg","https://themen.perspektiveausland.com/themen/schutz-vor-krieg-und-wehrpflicht"],
               ]},
               { t: "Plattform", links: [
-                ["Podcast","https://www.perspektiveausland.com/podcast"],
                 ["YouTube","https://www.youtube.com/c/PerspektiveAuslandPodcast"],
                 ["Der Club","https://nhc.perspektiveausland.com/club"],
                 ["Veranstaltungen","https://events.perspektiveausland.com/"],
@@ -589,8 +598,8 @@ export default function UeberUnsPage() {
               ]},
               { t: "Kontakt", links: [
                 ["Erstgespräch buchen","https://mandatierung.perspektiveausland.com/"],
-                ["kontakt@perspektiveausland.com","mailto:kontakt@perspektiveausland.com"],
-                ["sebsauerborn.com","https://www.sebsauerborn.com"],
+                ["Kontakt","https://www.perspektiveausland.com/kontakt"],
+                ["Sebastian Sauerborn","https://www.sebsauerborn.com"],
               ]},
             ].map((col, i) => (
               <div key={i}>

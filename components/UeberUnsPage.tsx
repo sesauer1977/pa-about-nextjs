@@ -459,6 +459,35 @@ export default function UeberUnsPage() {
           </div>
         </section>
 
+        {/* 07 — DAS TEAM */}
+        <section className="pa-section pa-section-light">
+          <div className="pa-inner">
+            <div style={{ marginBottom: "2rem" }}>
+              <div className="pa-coord-divider" style={{ color: "rgba(201,168,76,0.75)" }}>Sechs Köpfe. Eine Praxis.</div>
+            </div>
+            <div className="pa-grid-portrait">
+              <Fade>
+                <div className="pa-chapter-label"><span className="pa-chapter-num">07</span><div className="pa-chapter-line" /><span className="pa-chapter-title">Das Team</span></div>
+                <h2 className="pa-h2-dark">Niemand baut so etwas allein</h2>
+                <p className="pa-body-dark">Perspektive Ausland ist heute eine Praxis aus sechs Beraterinnen und Beratern, mit eigenen Schwerpunkten, eigenen Jurisdiktionen und in Teilen mit über fünfzehn Jahren gemeinsamer Geschichte.</p>
+                <p className="pa-body-dark"><strong>Daniel Taborek</strong> ist seit 2009 selbst Auswanderer und mein engster Mitstreiter und Wegbegleiter bei Perspektive Ausland. Im Podcast die Stimme, mit der unsere Mandanten ebenso rechnen wie mit meiner. Seine Spezialgebiete sind zweite Staatsbürgerschaften, Golden-Visa-Programme und dauerhafte Aufenthaltsrechte. Wohnsitz und Banking in Serbien und Georgien gehören zu seinem operativen Tagesgeschäft. Mehrmals jährlich begleitet er Mandanten persönlich nach Sansibar zu Fumba Town.</p>
+                <p className="pa-body-dark">Neben Daniel arbeiten <strong>Friedrich A. Hennegriff</strong> als unabhängiger Vermögensschutz-Stratege (25 Jahre Kapitalmärkte, seit 2012 ausschließlich im Mandanteninteresse), <strong>Harley Bieder</strong> als Lateinamerika-Spezialist (zwölf Länder von Argentinien bis Uruguay, aus gelebter Erfahrung statt aus dem Lehrbuch), <strong>Sabrina Sauerborn</strong> mit Wohnsitz und Unternehmensstruktur in Malta und Dubai aus erster Hand, und <strong>Timothy Te</strong> als Operations Manager in Davao mit direkter Verantwortung für die Philippinen-Mandate sowie für Bankkonto-Eröffnungen in Singapur und Hongkong.</p>
+                <p className="pa-body-dark" style={{ marginBottom: "1.75rem" }}>Mehrere von uns leben selbst seit Jahren oder Jahrzehnten im Ausland. Wir empfehlen unseren Mandanten nichts, was wir nicht selbst getestet, durchgemacht oder umgesetzt haben.</p>
+                <a href="https://mandatierung.perspektiveausland.com/" className="pa-link-inline">Das gesamte Team kennenlernen →</a>
+              </Fade>
+              <Fade delay={1}>
+                <div className="pa-portrait-wrap" style={{ background: "var(--navy)" }}>
+                  <img
+                    src="https://d2xsxph8kpxj0f.cloudfront.net/310519663489425504/CDxvB3jQvgbrdKhn9JfRho/daniel_taborek_portrait-P5yHBj2kwSz93fk2eZ3HkG.webp"
+                    alt="Daniel Taborek, Berater bei Perspektive Ausland"
+                  />
+                  <div className="pa-portrait-credit" style={{ color: "rgba(250,247,242,0.6)", fontStyle: "italic" }}>Daniel Taborek. Seit 2009 selbst Auswanderer. Berater bei Perspektive Ausland.</div>
+                </div>
+              </Fade>
+            </div>
+          </div>
+        </section>
+
         {/* DUBAI IMAGE */}
         <div className="pa-landscape">
           <div className="pa-landscape-bg" style={{ backgroundImage: `url(${IMAGES.dubai})` }}>
@@ -472,12 +501,12 @@ export default function UeberUnsPage() {
           </div>
         </div>
 
-        {/* 07 — WORAN WIR ARBEITEN */}
+        {/* 08 — WORAN WIR ARBEITEN */}
         <section className="pa-section pa-section-light">
           <div className="pa-inner">
             <Fade>
               <div style={{ marginBottom: "3rem" }}>
-                <div className="pa-chapter-label"><span className="pa-chapter-num">07</span><div className="pa-chapter-line" /><span className="pa-chapter-title">Woran wir arbeiten</span></div>
+                <div className="pa-chapter-label"><span className="pa-chapter-num">08</span><div className="pa-chapter-line" /><span className="pa-chapter-title">Woran wir arbeiten</span></div>
                 <h2 className="pa-h2-dark">Sechs Bereiche, in denen wir konkret beraten</h2>
               </div>
             </Fade>
@@ -503,13 +532,13 @@ export default function UeberUnsPage() {
           </div>
         </section>
 
-        {/* 08 — DER SCOUT-GEDANKE */}
+        {/* 09 — DER SCOUT-GEDANKE */}
         <section className="pa-section pa-section-dark">
           <div className="pa-inner">
             <div className="pa-grid-2">
               <Fade>
                 <div className="pa-coord-divider">Be prepared. Have options. Build before you need them.</div>
-                <div className="pa-chapter-label"><span className="pa-chapter-num">08</span><div className="pa-chapter-line" /><span className="pa-chapter-title">Haltung</span></div>
+                <div className="pa-chapter-label"><span className="pa-chapter-num">09</span><div className="pa-chapter-line" /><span className="pa-chapter-title">Haltung</span></div>
                 <h2 className="pa-h2-light">Auswandern als nächstes Kapitel</h2>
               </Fade>
               <Fade delay={1}>
@@ -522,12 +551,12 @@ export default function UeberUnsPage() {
           </div>
         </section>
 
-        {/* 09 — DAS PLAN-B-KONZEPT */}
+        {/* 10 — DAS PLAN-B-KONZEPT */}
         <section className="pa-section pa-section-light">
           <div className="pa-inner">
             <div className="pa-grid-2">
               <Fade>
-                <div className="pa-chapter-label"><span className="pa-chapter-num">09</span><div className="pa-chapter-line" /><span className="pa-chapter-title">Das Plan-B-Konzept</span></div>
+                <div className="pa-chapter-label"><span className="pa-chapter-num">10</span><div className="pa-chapter-line" /><span className="pa-chapter-title">Das Plan-B-Konzept</span></div>
                 <h2 className="pa-h2-dark">Fünf Bausteine, die ineinandergreifen</h2>
                 <p className="pa-body-dark">Ein vollständiger Plan B ist nicht eine Maßnahme, sondern ein Zusammenspiel aus fünf Komponenten, die als Set ihre volle Wirkung entfalten.</p>
                 <p className="pa-body-dark" style={{ marginBottom: "1.75rem" }}>Welche Komponente für dich Priorität hat, hängt von deiner Ausgangslage ab. In der Mandatierung priorisieren wir gemeinsam, was zuerst kommt und was als Folgeprojekt sinnvoller geplant wird.</p>

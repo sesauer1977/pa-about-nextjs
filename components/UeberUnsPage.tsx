@@ -219,9 +219,9 @@ export default function UeberUnsPage() {
                   <li style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "10px", fontWeight: 600, letterSpacing: "0.1em", color: "rgba(201,168,76,0.8)", textTransform: "uppercase" }} aria-current="page">Über uns</li>
                 </ol>
               </nav>
-              <h1 className="pa-hero-h1">Über Perspektive Ausland: die Plattform für Auswanderer</h1>
+              <h1 className="pa-hero-h1">Über Perspektive Ausland: die Plattform für Auswanderer und Plan-B-Strategen</h1>
               <p className="pa-hero-subline">
-                Wir beraten zu Wegen, die wir selbst gegangen sind. Seit 2000 lebe ich im Ausland: Schweiz, England, USA, Malta, Irland. Seitdem begleiten wir andere durch die gleiche Entscheidung.
+                Wir beraten zu Wegen, die wir selbst gegangen sind. Seit 2000 lebe ich im Ausland: Schweiz, England, USA, Malta, Irland, Schottland. Seitdem begleiten wir andere durch die gleiche Entscheidung.
               </p>
               <div className="pa-hero-brand">Mehr Geld. Mehr Freiheit. Weniger Staat.</div>
               <div className="pa-hero-btns">
@@ -241,7 +241,7 @@ export default function UeberUnsPage() {
           <div className="pa-stats-grid">
             {[
               { n: "25", l: "Jahre im Ausland", s: "seit 2000" },
-              { n: "5", l: "Länder selbst gelebt", s: "Schweiz, England, USA, Malta, Irland" },
+              { n: "6", l: "Länder selbst gelebt", s: "Schweiz, England, USA, Malta, Irland, Schottland" },
               { n: "40+", l: "Jurisdiktionen analysiert", s: "für Mandanten in der Praxis umgesetzt" },
               { n: "200k+", l: "Reichweite", s: "YouTube, Newsletter, TikTok, Instagram" },
               { n: "Mandanten", l: "aus allen Branchen", s: "Unternehmer, Freiberufler, Investoren" },
@@ -283,7 +283,7 @@ export default function UeberUnsPage() {
             <div className="pa-landscape-overlay-b" />
             <div className="pa-landscape-caption">
               <div className="pa-coord-divider">Seit 2000 selbst im Ausland.</div>
-              <h3 className="pa-landscape-h">Vom Hotzenwald in die Welt.</h3>
+              <h3 className="pa-landscape-h">Vom Schwarzwald in die Welt.</h3>
             </div>
           </div>
         </div>
@@ -293,13 +293,13 @@ export default function UeberUnsPage() {
           <div className="pa-inner">
             <div className="pa-grid-2">
               <Fade>
-                <div className="pa-chapter-label"><span className="pa-chapter-num">02</span><div className="pa-chapter-line" /><span className="pa-chapter-title">Warum ich</span></div>
-                <h2 className="pa-h2-light">Ich habe nicht beraten. <em className="pa-gold">Ich bin es gegangen.</em></h2>
+                <div className="pa-chapter-label"><span className="pa-chapter-num">02</span><div className="pa-chapter-line" /><span className="pa-chapter-title">Eigene Erfahrung</span></div>
+                <h2 className="pa-h2-light">Ich habe den Weg nicht nur beraten. <em className="pa-gold">Ich bin ihn selbst gegangen.</em></h2>
                 <div className="pa-divider" />
               </Fade>
               <Fade delay={1}>
-                <p className="pa-body-light">Ich bin Sebastian Sauerborn. Im Jahr 2000 habe ich Deutschland verlassen, mit Anfang zwanzig, neugierig und mit dem Gefühl, dass die Welt größer sein muss als der Schwarzwald. Ich war kein Flüchtling und kein Steuerflüchtling. Ich war jemand, der wissen wollte, wie man woanders lebt.</p>
-                <p className="pa-body-light">Seitdem habe ich in fünf Ländern gewohnt: in der Schweiz, in England, in den USA, auf Malta und in Irland. Aus der Schweiz kam die professionelle Grundausbildung bei PwC. Aus London der Schritt zur eigenen Beratungs-Sozietät in der City. Aus Florida und Texas der Aufbau der US-Praxis. Malta und Irland kamen als zusätzliche operative Standorte dazu. Jedes Land war eine eigene Entscheidung mit eigenen Konsequenzen. Jedes hat mir etwas beigebracht, das auf der nächsten Station nützlich wurde.</p>
+                <p className="pa-body-light">Ich bin Sebastian Sauerborn. Im Jahr 2000 habe ich Deutschland verlassen, mit Anfang zwanzig, neugierig und mit dem Gefühl, dass die Welt größer sein muss als der Schwarzwald. Es war keine Flucht und kein Steueroptimierungs-Akt. Es war Neugier auf das Leben in einem anderen Land.</p>
+                <p className="pa-body-light">Seitdem habe ich in sechs Ländern gewohnt: in der Schweiz, in England, in den USA, auf Malta, in Irland und in Schottland. Aus der Schweiz kam die professionelle Grundausbildung bei PwC. Aus London der Schritt zur eigenen Beratungs-Sozietät in der City. Aus Florida und Texas der Aufbau der US-Praxis. Malta, Irland und Schottland kamen als zusätzliche operative Standorte und zweite Residenzen dazu. Jedes Land war eine eigene Entscheidung mit eigenen Konsequenzen. Jedes hat mir etwas beigebracht, das auf der nächsten Station nützlich wurde.</p>
                 <p className="pa-body-light">Was meine Mandanten heute fragen, habe ich selbst durchgemacht. Welche Bank dich als Zugezogenen nimmt. Welches Finanzamt mit welcher Antwort zufrieden ist. Welche Aufenthaltsbewilligung in der Praxis funktioniert und welche nur auf dem Papier. Welche Steuerstruktur einen Auditor übersteht und welche kollabiert, sobald jemand genauer hinschaut.</p>
                 <p className="pa-body-light" style={{ marginBottom: "1.75rem" }}>Das ist der Unterschied zwischen Beratern, die einen Steuerrechts-Lehrgang gemacht haben, und Beratern, die selbst Auswanderer sind.</p>
                 <a href="https://www.sebsauerborn.com/about" className="pa-link-gold">Vollständige Biografie auf sebsauerborn.com →</a>
@@ -315,12 +315,12 @@ export default function UeberUnsPage() {
               <Fade>
                 <div className="pa-coord-divider" style={{ color: "rgba(201,168,76,0.75)" }}>47°59&apos;N 7°51&apos;E · Freiburg im Breisgau</div>
                 <div className="pa-chapter-label"><span className="pa-chapter-num">03</span><div className="pa-chapter-line" /><span className="pa-chapter-title">Herkunft und Weg</span></div>
-                <h2 className="pa-h2-dark">Vom Hotzenwald in die Welt</h2>
+                <h2 className="pa-h2-dark">Vom Schwarzwald in die Welt</h2>
                 <div className="pa-divider" />
               </Fade>
               <Fade delay={1}>
-                <p className="pa-body-dark">Geboren 1977 in Freiburg im Breisgau, aufgewachsen im Hotzenwald nahe der Schweizer Grenze. Mit Anfang zwanzig zog ich nach Zürich und fing bei PwC an. Viereinhalb Jahre. In der Schweiz lernte ich Präzision, Diskretion und eine andere Verwaltungskultur kennen.</p>
-                <p className="pa-body-dark">2003 ging ich nach London zu Allianz Insurance. Vier Jahre Konzern, parallel dazu der schrittweise Aufbau der eigenen Praxis. 2006 gründete ich mit ehemaligen PwC-Kollegen eine Beratungs-Sozietät in der City of London. Der Fokus war strategisch: deutschsprachige Unternehmer und vermögende Privatpersonen, die das damals außergewöhnlich attraktive britische Non-Dom-Regime nutzen wollten. Der Wegzug nach London war zu dieser Zeit für viele DACH-HNWIs die wirtschaftlich sinnvollste Entscheidung, und wir haben sie strukturiert.</p>
+                <p className="pa-body-dark">Geboren 1977 in Freiburg im Breisgau, aufgewachsen in und um Freiburg, in den Wäldern und Tälern des Schwarzwalds nahe der Schweizer Grenze. Mit Anfang zwanzig zog ich nach Zürich und fing bei PwC an. Viereinhalb Jahre. In der Schweiz lernte ich Präzision, Diskretion und eine andere Verwaltungskultur kennen.</p>
+                <p className="pa-body-dark">2003 ging ich nach London zu Allianz Versicherung. Vier Jahre Konzern, parallel dazu der schrittweise Aufbau der eigenen Praxis. 2006 gründete ich mit ehemaligen PwC-Kollegen eine Beratungs-Sozietät in der City of London. Der Fokus war strategisch: deutschsprachige Unternehmer und vermögende Privatpersonen, die das damals außergewöhnlich attraktive britische Non-Dom-Regime nutzen wollten. Der Wegzug nach London war zu dieser Zeit für viele DACH-HNWIs die wirtschaftlich sinnvollste Entscheidung, und wir haben sie strukturiert.</p>
                 <p className="pa-body-dark">Aus der UK-Praxis wuchs die Erweiterung auf die USA. 2008 zog ich selbst nach Miami und baute von dort das US-Geschäft auf, von der LLC-Strukturierung über E-2-Investorenvisa bis zum US-Banking für Nicht-Residenten. Ich lebte von 2008 bis 2017 vollständig in den Vereinigten Staaten, mit Phasen in Irland (2015) und Malta (2016), die im selben Zeitraum eigene Standorte in der Beratungsstruktur wurden. Malta und Irland erweiterten das Spektrum um zwei weitere Non-Dom- und niedrigsteuerorientierte EU-Jurisdiktionen.</p>
                 <p className="pa-body-dark">2011 erwarb ich die Vaquera Ranch in Bastrop County, Texas. Eine private Entscheidung, die meine Verankerung im Land vertiefte: weg von der Großstadt, näher am Boden, eine eigene Adresse in Texas. 2017 verlagerte sich der Lebensmittelpunkt zurück nach London, mit Texas als zweitem Standbein.</p>
                 <p className="pa-body-dark" style={{ marginBottom: 0 }}>Heute teile ich meine Zeit zwischen Großbritannien und Texas. Familie, Mandanten und Veranstaltungen verteilen sich über beide Seiten des Atlantiks.</p>
@@ -348,7 +348,7 @@ export default function UeberUnsPage() {
             <div className="pa-grid-2-wide-r">
               <Fade>
                 <div className="pa-chapter-label"><span className="pa-chapter-num">04</span><div className="pa-chapter-line" /><span className="pa-chapter-title">Stationen</span></div>
-                <h2 className="pa-h2-light">25 Jahre. <em className="pa-gold">Fünf Länder. Eine Praxis.</em></h2>
+                <h2 className="pa-h2-light">25 Jahre. <em className="pa-gold">Sechs Länder. Eine Praxis.</em></h2>
                 <p className="pa-body-light">Jede Station war eine eigene Entscheidung mit eigenen Konsequenzen. Was auf dem Papier wie eine Biografie aussieht, ist in der Praxis ein Archiv aus Erfahrungen, die direkt in die Mandatierung einfließen.</p>
                 <blockquote style={{ borderLeft: "3px solid rgba(201,168,76,0.5)", paddingLeft: "1.5rem", fontFamily: "'Cormorant Garamond', serif", fontSize: "1.3rem", fontStyle: "italic", color: "rgba(250,247,242,0.8)", lineHeight: 1.55, margin: "0" }}>
                   "Jedes Land war eine eigene Entscheidung mit eigenen Konsequenzen. Jedes hat mir etwas beigebracht, das auf der nächsten Station nützlich wurde."
@@ -359,12 +359,12 @@ export default function UeberUnsPage() {
                   <div className="pa-timeline-title">Stationen</div>
                   {[
                     ["2000","Zürich","PwC"],
-                    ["2003","London","Allianz Insurance"],
+                    ["2003","London","Allianz Versicherung"],
                     ["2006","London","Beratungs-Sozietät mit ex-PwC-Partnern, UK Non-Dom für DACH-Mandanten"],
                     ["2007","London","Vollzeit-Wechsel in die eigene Praxis"],
                     ["2008","Miami","Aufbau der US-Praxis"],
                     ["2011","Bastrop County, Texas","Vaquera Ranch"],
-                    ["2015","Dublin","Irland-Standort"],
+                    ["2015","Schottland und Dublin","Zweite Residenz in Schottland, Irland-Standortausbau"],
                     ["2016","Valletta","Malta-Standort"],
                     ["2017","London","Verlagerung des Lebensmittelpunkts zurück nach UK"],
                     ["heute","UK und Texas","Perspektive Ausland"],

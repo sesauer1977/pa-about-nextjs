@@ -4,7 +4,7 @@ import UeberUnsPage from "@/components/UeberUnsPage";
 export const metadata: Metadata = {
   title: "Über Perspektive Ausland: die Plattform für Auswanderer",
   description:
-    "Sebastian Sauerborn lebt seit 2000 selbst im Ausland und berät seitdem deutschsprachige Unternehmer zu Auswanderung, Plan B, Wegzugsbesteuerung und Strukturen außerhalb der EU. Fünf Länder, 40+ Jurisdiktionen.",
+    "Sebastian Sauerborn lebt seit 2000 selbst im Ausland und berät seitdem deutschsprachige Unternehmer zu Auswanderung, Plan B, Wegzugsbesteuerung und Strukturen außerhalb der EU. Sechs Länder, 40+ Jurisdiktionen.",
   alternates: {
     canonical: "https://www.perspektiveausland.com/ueber-uns",
   },

@@ -8,7 +8,7 @@ export default function StructuredData() {
         url: "https://www.perspektiveausland.com/ueber-uns",
         name: "Über Perspektive Ausland: die Plattform für Auswanderer",
         description:
-          "Sebastian Sauerborn lebt seit 2000 selbst im Ausland und berät seitdem deutschsprachige Unternehmer zu Auswanderung, Plan B, Wegzugsbesteuerung und Strukturen außerhalb der EU. Fünf Länder, 40+ Jurisdiktionen.",
+          "Sebastian Sauerborn lebt seit 2000 selbst im Ausland und berät seitdem deutschsprachige Unternehmer zu Auswanderung, Plan B, Wegzugsbesteuerung und Strukturen außerhalb der EU. Sechs Länder, 40+ Jurisdiktionen.",
         inLanguage: "de-DE",
         isPartOf: { "@id": "https://www.perspektiveausland.com#website" },
         about: { "@id": "https://www.perspektiveausland.com#organization" },
@@ -72,7 +72,7 @@ export default function StructuredData() {
     numberOfItems: 10,
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "2000 Zürich, PwC" },
-      { "@type": "ListItem", position: 2, name: "2003 London, Allianz Insurance" },
+      { "@type": "ListItem", position: 2, name: "2003 London, Allianz Versicherung" },
       { "@type": "ListItem", position: 3, name: "2006 London, Beratungs-Sozietät mit ex-PwC-Partnern" },
       { "@type": "ListItem", position: 4, name: "2007 London, Vollzeit-Wechsel in die eigene Praxis" },
       { "@type": "ListItem", position: 5, name: "2008 Miami, Aufbau der US-Praxis" },

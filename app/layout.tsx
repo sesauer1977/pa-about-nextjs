@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import StructuredData from "@/components/StructuredData";
 import "./globals.css";
 
@@ -68,6 +69,32 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body style={{ margin: 0, padding: 0, background: "#FAF7F2" }}>
         <StructuredData />
         {children}
+
+        {/*
+          Koala link-building script.
+          strategy="afterInteractive" ensures this runs only in the browser
+          after hydration — never during SSG/prerender.
+          The inline localhost guard prevents any local/preview URL from
+          being serialised into the Koala page= parameter.
+        */}
+        <Script
+          id="koala-links"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function () {
+  var host = window.location.hostname;
+  if (host === "localhost" || host === "127.0.0.1") return;
+  window.KoalaLinksConfig = window.KoalaLinksConfig || {};
+  if (document.querySelector('script[data-koala-links="true"]')) return;
+  var s = document.createElement("script");
+  s.defer = true;
+  s.setAttribute("data-koala-links", "true");
+  s.src = "https://koala.sh/api/eucalyptus.js?domainId=49fbbf8a-126d-48dd-aa60-f95ed7b0a764&page=" +
+    encodeURIComponent(window.location.protocol + "//" + window.location.host + window.location.pathname);
+  document.head.appendChild(s);
+})();`,
+          }}
+        />
       </body>
     </html>
   );

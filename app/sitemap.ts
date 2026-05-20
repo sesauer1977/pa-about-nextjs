@@ -9,22 +9,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,
-      alternates: {
-        languages: {
-          de: "https://ueber-uns.perspektiveausland.com/ueber-pa",
-        },
-      },
-    },
-    {
-      url: "https://www.perspektiveausland.com/ueber-uns",
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-      alternates: {
-        languages: {
-          de: "https://www.perspektiveausland.com/ueber-uns",
-        },
-      },
     },
   ];
 }

@@ -8,11 +8,6 @@
       "source": "/",
       "destination": "/ueber-pa",
       "permanent": true
-    },
-    {
-      "source": "/((?!ueber-pa).*)",
-      "destination": "/ueber-pa",
-      "permanent": true
     }
   ]
 }
